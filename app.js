@@ -233,11 +233,11 @@ var firmwarewizard = function() {
   }
 
   function parseFilePath(device, match, path, href, branch) {
-    if (!isValidFileName(href)) {
+    if (device.model == '--ignore--' || device.revision == '--ignore--') {
       return;
     }
 
-    if (device.model == '--ignore--') {
+    if (!isValidFileName(href)) {
       return;
     }
 
