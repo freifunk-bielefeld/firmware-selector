@@ -14,6 +14,7 @@
  */
 
 var config = {
+  // see devices.js for different vendor model maps
   vendormodels: openwrt_vendormodels,
   // relative image paths and branch
   directories: {
