@@ -16,8 +16,8 @@
 var config = {
   // relative image paths and branch
   directories: {
-    // some demo sources
-    './images/gluon-factory.html': 'stable',
-    './images/gluon-sysupgrade.html': 'stable'
+    // some example sources
+    './images/gluon-factory-example.html': 'stable',
+    './images/gluon-sysupgrade-example.html': 'stable'
   }
 };
