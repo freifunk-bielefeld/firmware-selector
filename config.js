@@ -14,6 +14,7 @@
  */
 
 var config = {
+  vendormodels: openwrt_vendormodels,
   // relative image paths and branch
   directories: {
     // some example sources
