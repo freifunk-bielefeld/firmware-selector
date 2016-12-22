@@ -13,25 +13,24 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-function $(s) {
-  return document.getElementById(s.substring(1));
+function $(id) {
+  return document.getElementById(id.substring(1));
 }
 
 function toggleClass(id, cssClass) {
-  var e = $(id);
-  e.classList.toggle(cssClass);
+  $(id).classList.toggle(cssClass);
 }
 
-function show_inline(e) {
-  $(e).style.display = 'inline-block';
+function show_inline(id) {
+  $(id).style.display = 'inline-block';
 }
 
-function show_block(e) {
-  $(e).style.display = 'block';
+function show_block(id) {
+  $(id).style.display = 'block';
 }
 
-function hide(e) {
-  $(e).style.display = 'none';
+function hide(id) {
+  $(id).style.display = 'none';
 }
 
 // Object.values() replacement
@@ -215,12 +214,12 @@ var firmwarewizard = function() {
 
   function findRevision(name) {
     // reversion identifier like a1, v2
-    var m =/-([a-z][0-9]+(.[0-9]+)?)[.-]/.exec(name);
+    var m = /-([a-z][0-9]+(.[0-9]+)?)[.-]/.exec(name);
     return m ? m[1] : 'alle';
   }
 
   function findRegion(name) {
-    var m =/-(eu|cn|de|jp|us)[.-]/.exec(name);
+    var m = /-(eu|cn|de|jp|us)[.-]/.exec(name);
     return m ? m[1] : '';
   }
 
@@ -546,12 +545,6 @@ var firmwarewizard = function() {
             }
           }
         } while (m);
-
-        /*
-        var el = document.createElement('html');
-        el.innerHTML = data;
-        var as = el.getElementsByTagName('a');
-        */
 
         updateHTML(wizard);
       });
