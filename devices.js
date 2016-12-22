@@ -149,14 +149,14 @@ var openwrt_vendormodels = {
   },
 
   "x86": {
-    "generic 32bit": "generic.img.gz",
-    "generic 64bit": "64.img.gz",
-    "VirtualBox 32bit": "virtualbox.vdi",
-    "VirtualBox 64bit": "64-virtualbox.vdi",
-    "VMware 32bit": "vmware.vmdk",
-    "VMware 64bit": "64-vmware.vmdk",
-    "KVM 32bit": "kvm.img.gz",
-    "XEN 32bit": "xen.img.gz",
+    "generic 32bit": "x86-generic",
+    "generic 64bit": "x86-64",
+    "VirtualBox 32bit": "x86-virtualbox",
+    "VirtualBox 64bit": "x86-64-virtualbox",
+    "VMware 32bit": "vmware",
+    "VMware 64bit": "64-vmware",
+    "KVM 32bit": "x86-kvm",
+    "XEN 32bit": "x86-xen",
   }
 };
 
