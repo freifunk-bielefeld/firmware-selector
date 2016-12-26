@@ -13,39 +13,24 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-
-var config = {
-  typeNames: {
-    'factory': 'Erstinstallation',
-    'sysupgrade': 'Upgrade'
-  },
-  // relative image paths and branch
-  directories: {
-    // some demo sources
-    './images/gluon-factory.html': 'stable',
-    './images/gluon-sysupgrade.html': 'stable'
-  }
-};
-
-function $(s) {
-  return document.getElementById(s.substring(1));
+function $(id) {
+  return document.getElementById(id.substring(1));
 }
 
-function toggleDisplay(id) {
-  var e = $(id);
-  e.style.display = (e.style.display == 'none') ? 'block' : 'none'
+function toggleClass(id, cssClass) {
+  $(id).classList.toggle(cssClass);
 }
 
-function show_inline(e) {
-  $(e).style.display = 'inline-block';
+function show_inline(id) {
+  $(id).style.display = 'inline-block';
 }
 
-function show_block(e) {
-  $(e).style.display = 'block';
+function show_block(id) {
+  $(id).style.display = 'block';
 }
 
-function hide(e) {
-  $(e).style.display = 'none';
+function hide(id) {
+  $(id).style.display = 'none';
 }
 
 // Object.values() replacement
@@ -74,8 +59,8 @@ var firmwarewizard = function() {
     var vendormodels_reverse = {}
 
     // create a map of {match : [{vendor, model, default-revision}, ... ], ...}
-    for (var vendor in vendormodels) {
-      var models = vendormodels[vendor];
+    for (var vendor in config.vendormodels) {
+      var models = config.vendormodels[vendor];
       for (var model in models) {
         var match = models[model];
         if (typeof match == 'string') {
@@ -229,12 +214,12 @@ var firmwarewizard = function() {
 
   function findRevision(name) {
     // reversion identifier like a1, v2
-    var m =/-([a-z][0-9]+(.[0-9]+)?)[.-]/.exec(name);
+    var m = /-([a-z][0-9]+(.[0-9]+)?)[.-]/.exec(name);
     return m ? m[1] : 'alle';
   }
 
   function findRegion(name) {
-    var m =/-(eu|cn|de|jp|us)[.-]/.exec(name);
+    var m = /-(eu|cn|de|jp|us)[.-]/.exec(name);
     return m ? m[1] : '';
   }
 
@@ -247,11 +232,11 @@ var firmwarewizard = function() {
   }
 
   function parseFilePath(device, match, path, href, branch) {
-    if (!isValidFileName(href)) {
+    if (device.model == '--ignore--' || device.revision == '--ignore--') {
       return;
     }
 
-    if (device.model == '--ignore--') {
+    if (!isValidFileName(href)) {
       return;
     }
 
@@ -388,7 +373,11 @@ var firmwarewizard = function() {
       var types = getImageTypes();
       for (var i in types) {
         var type = types[i];
-        var displayType = config.typeNames[type] || type;
+        var typeNames = {
+          'factory': 'Erstinstallation',
+          'sysupgrade': 'Upgrade'
+        };
+        var displayType = typeNames[type] || type;
           content += '<input type="radio" id="radiogroup-typeselect-'
           + type + '" ' + ((type == wizard.imageType) ? 'checked ' : '')
           + 'name="firmwareType" onclick="firmwarewizard.setImageType(\'' + type + '\');">'
@@ -413,10 +402,10 @@ var firmwarewizard = function() {
       for (var i in revisions) {
         var rev = revisions[i];
         if (rev.branch == 'experimental') {
-          $('#branchselect').innerHTML = '<button class="btn abutton dl-expermental" onclick="toggleDisplay(\'#warning-experimental\');">'+rev.branch+' (' +rev.version+')</button>';
-          $('#branch-experimental-dl').innerHTML = '<a href="'+rev.location+'" class="abutton">Download für Experimentierfreudige</a>';
+          $('#branchselect').innerHTML += '<button class="btn dl-expermental" onclick="toggleClass(\'#branch-pane\', \'show-experimental-warning\');">'+rev.branch+' (' +rev.version+')</button>';
+          $('#branch-experimental-dl').innerHTML = '<a href="'+rev.location+'" class="btn">Download für Experimentierfreudige</a>';
         } else {
-          $('#branchselect').innerHTML = '<a href="'+rev.location+'" class="abutton">'+rev.branch+' (' +rev.version+')</a>';
+          $('#branchselect').innerHTML += '<a href="'+rev.location+'" class="btn">'+rev.branch+' (' +rev.version+')</a>';
         }
       }
     }
@@ -556,12 +545,6 @@ var firmwarewizard = function() {
             }
           }
         } while (m);
-
-        /*
-        var el = document.createElement('html');
-        el.innerHTML = data;
-        var as = el.getElementsByTagName('a');
-        */
 
         updateHTML(wizard);
       });
