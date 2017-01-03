@@ -13,24 +13,24 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-function $(id) {
-  return document.getElementById(id.substring(1));
+function $(s) {
+  return document.getElementById(s.substring(1));
 }
 
-function toggleClass(id, cssClass) {
-  $(id).classList.toggle(cssClass);
+function toggleClass(s, cssClass) {
+  $(s).classList.toggle(cssClass);
 }
 
-function show_inline(id) {
-  $(id).style.display = 'inline-block';
+function show_inline(s) {
+  $(s).style.display = 'inline-block';
 }
 
-function show_block(id) {
-  $(id).style.display = 'block';
+function show_block(s) {
+  $(s).style.display = 'block';
 }
 
-function hide(id) {
-  $(id).style.display = 'none';
+function hide(s) {
+  $(s).style.display = 'none';
 }
 
 // Object.values() replacement
@@ -48,7 +48,10 @@ function isEmptyObject(obj) {
 var firmwarewizard = function() {
   var app = {};
 
-  var IGNORED_ELEMENTS = ['-kernel', '-rootfs', '-tftp', '-16M-', '-fat', '-loader', '-il-', '-NA', '-x2-', '-hsv2'];
+  var IGNORED_ELEMENTS = [
+    './', '../', 'experimental.manifest', 'beta.manifest', 'stable.manifest',
+    '-kernel', '-rootfs', '-tftp', '-16M-', '-fat', '-loader', '-il-', '-NA',
+    '-x2-', '-hsv2'];
   var PANE = {'MODEL': 0, 'IMAGETYPE': 1, 'BRANCH': 2};
 
   var wizard = parseWizardObject();
@@ -180,13 +183,13 @@ var firmwarewizard = function() {
   }
 
   // exclude file names containing a string
-  function isValidFileName(name) {
+  function ignoreFileName(name) {
     for (var i in IGNORED_ELEMENTS) {
       if (name.indexOf(IGNORED_ELEMENTS[i]) != -1) {
-        return false;
+        return true;
       }
     }
-    return true;
+    return false;
   }
 
   // simplified version string sort
@@ -208,7 +211,7 @@ var firmwarewizard = function() {
 
   function findVersion(name) {
     // version with optional date in it (e.g. 0.8.0~20160502)
-    var m = /-([0-9]+.[0-9]+.[0-9]+(~[0-9]+)?)-/.exec(name);
+    var m = /-([0-9]+.[0-9]+.[0-9]+(~[0-9]+)?)[.-]/.exec(name);
     return m ? m[1] : '';
   }
 
@@ -236,13 +239,9 @@ var firmwarewizard = function() {
       return;
     }
 
-    if (!isValidFileName(href)) {
-      return;
-    }
-
     var location = path + href;
     var type = findType(href);
-    var version = findVersion(location);
+    var version = findVersion(href);
     var region = findRegion(href);
     var revision = device.revision;
 
@@ -522,26 +521,32 @@ var firmwarewizard = function() {
       return 0;
     });
 
-    // create regex for extracting image paths
-    var re = new RegExp('"([^"]*(' + matches.join('|') + ')[-.][^"]*)"', 'g');
+    // match all links
+    var reLink = new RegExp('href="([^"]*)"', 'g');
+
+    // match image files
+    var reMatch = new RegExp('('+matches.join('|')+')[.-]');
 
     for (var indexPath in config.directories) {
       // retrieve the contents of the directory
       loadSite(indexPath, function(data, indexPath) {
-        re.lastIndex = 0; // reset regex
-        var m;
+	var basePath = indexPath.substring(0, indexPath.lastIndexOf('/') + 1);
+	var branch = config.directories[indexPath];
+        reLink.lastIndex = 0;
 
+        var m;
         do {
-          m = re.exec(data);
+          m = reLink.exec(data);
           if (m) {
             var href = m[1];
-            var match = m[2];
-            var basePath = indexPath.substring(0, indexPath.lastIndexOf('/') + 1);
-            var branch = config.directories[indexPath];
-            var devices = vendormodels_reverse[match];
-
-            for (var i in devices) {
-              parseFilePath(devices[i], match, basePath, href, branch);
+            var match = reMatch.exec(href);
+            if (match) {
+              var devices = vendormodels_reverse[match[1]];
+              for (var i in devices) {
+                parseFilePath(devices[i], match, basePath, href, branch);
+              }
+            } else if(config.listMissingImages && !ignoreFileName(href)) {
+              console.log("No rule for firmware image:", href);
             }
           }
         } while (m);
