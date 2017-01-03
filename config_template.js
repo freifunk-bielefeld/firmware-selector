@@ -14,11 +14,13 @@
  */
 
 var config = {
+  // list images on console that match no model
+  listMissingImages: false,
   // see devices.js for different vendor model maps
-  vendormodels: openwrt_vendormodels,
+  vendormodels: vendormodels,
   // relative image paths and branch
   directories: {
-    // some example sources
+    // some demo sources
     './images/gluon-factory-example.html': 'stable',
     './images/gluon-sysupgrade-example.html': 'stable'
   }
