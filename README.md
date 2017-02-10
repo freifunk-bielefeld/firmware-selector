@@ -1,7 +1,7 @@
 OpenWrt/LEDE Firmware Wizard
 ---
 
-This Firmware Wizard lets a user select the correct firmware for his device. Directory listings are used to parse the list of available images.
+This Firmware Wizard enables an user to easily select the correct firmware for his WIFI device. Directory listings are used to parse the list of available fw images.
 
 Some [Screenshots](docs/screenshots.md).
 
