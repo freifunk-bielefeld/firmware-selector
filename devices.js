@@ -89,6 +89,10 @@ var vendormodels = {
     "PI": "raspberry-pi",
     "PI 2": "raspberry-pi-2"
   },
+  
+  "Fujitsu/Siemens": {
+    "Futro S550 I/II": "siemens-futro550"
+  },
 
   "TP-Link": {
     "Archer C5": {"archer-c5": "v1"},
