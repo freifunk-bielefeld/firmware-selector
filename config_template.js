@@ -22,7 +22,13 @@ var config = {
   directories: {
     // the images will be extracted from
     // directory listings of the web server
-    './images/gluon-factory-example.html': 'stable',
-    './images/gluon-sysupgrade-example.html': 'stable'
+    'Gotham City' : {
+      './images/gluon-factory-example.html': 'stable',
+      './images/gluon-sysupgrade-example.html': 'stable'
+    },
+    'Central City' : {
+      './images/gluon-factory-example.html': 'stable',
+      './images/gluon-sysupgrade-example.html': 'stable'
+    }
   }
 };

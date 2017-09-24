@@ -92,6 +92,7 @@ var firmwarewizard = function() {
 
   function parseWizardObject(wizard) {
     if (wizard === undefined || wizard === null) wizard = {};
+    wizard.community         = wizard.community || -1;
     wizard.vendor            = wizard.vendor || -1;
     wizard.model             = wizard.model || -1;
     wizard.revision          = wizard.revision || -1;
@@ -112,8 +113,8 @@ var firmwarewizard = function() {
       return search ? JSON.parse(
         '{"' + search.replace(/&/g, '","').replace(/=/g,'":"') + '"}',
         function(key, value) {
-          return (key=== '') ? value:decodeURIComponent(value);
-        }):{};
+          return (key === '') ? value : decodeURIComponent(value);
+        }) : {};
     }
     var parsedURL = parseURLasJSON();
     wizard = parseWizardObject(parsedURL);
@@ -125,6 +126,16 @@ var firmwarewizard = function() {
   };
 
   // Methods to set options
+
+  app.setCommunity = function(community) {
+    wizard.community = community;
+    wizard.vendor = -1;
+    wizard.model = -1;
+    wizard.revision = -1;
+    wizard.imageType = -1;
+    createHistoryState(wizard);
+    updateHTML(wizard);
+  };
 
   app.setVendor = function(vendor) {
     wizard.vendor = vendor;
@@ -240,7 +251,7 @@ var firmwarewizard = function() {
     }
   }
 
-  function parseFilePath(device, match, path, href, branch) {
+  function parseFilePath(device, match, path, href, community, branch) {
     if (device.model == '--ignore--' || device.revision == '--ignore--') {
       return;
     }
@@ -273,6 +284,7 @@ var firmwarewizard = function() {
       'type': type,
       'version': version,
       'location': location,
+      'community': community,
       'size': size
     });
   }
@@ -286,13 +298,13 @@ var firmwarewizard = function() {
   }
 
   function getRevisions() {
-    return sortByRevision(images[wizard.vendor][wizard.model])
+    return sortByRevision(images[wizard.community][wizard.vendor][wizard.model])
       .map(function(e) { return e.revision; })
       .filter(function(value, index, self) { return self.indexOf(value) === index; });
   }
 
   function getImageTypes() {
-    return images[wizard.vendor][wizard.model]
+    return images[wizard.community][wizard.vendor][wizard.model]
       .map(function(e) { return e.type; })
       .filter(function(value, index, self) { return self.indexOf(value) === index; })
       .sort();
@@ -308,13 +320,34 @@ var firmwarewizard = function() {
       hide('#firmwareTable');
     }
 
-    // show vendor dropdown menu.
+    // Show community dropdown menu.
+    function showCommunity() {
+      var select = $('#communityselect');
+      select.innerHTML = '';
+      select.appendChild(
+        createOption(-1, '-- Bitte Stadt wählen --')
+      );
+
+      var communities = Object.keys(config.directories).sort();
+      for (var i in communities) {
+        select.appendChild(
+          createOption(communities[i], communities[i], wizard.community)
+        );
+      }
+    }
+    showCommunity();
+
+    // Show vendor dropdown menu.
     function showVendors() {
       var select = $('#vendorselect');
       select.innerHTML = '';
       select.appendChild(
         createOption(-1, '-- Bitte Hersteller wählen --')
       );
+
+      if (wizard.community == -1 || isEmptyObject(images)) {
+        return;
+      }
 
       var vendors = Object.keys(images).sort();
       for (var i in vendors) {
@@ -338,11 +371,11 @@ var firmwarewizard = function() {
         return;
       }
 
-      var models = Object.keys(images[wizard.vendor]).sort();
+      var models = Object.keys(images[wizard.community][wizard.vendor]).sort();
       for (var i in models) {
-          select.appendChild(
-            createOption(models[i], models[i], wizard.model)
-          );
+        select.appendChild(
+          createOption(models[i], models[i], wizard.model)
+        );
       }
     }
     showModels();
@@ -357,7 +390,7 @@ var firmwarewizard = function() {
         createOption(-1, '-- Bitte Hardwarerevision wählen --', wizard.revision)
       );
 
-      if (wizard.vendor  == -1 || wizard.model == -1 || isEmptyObject(images)) {
+      if (wizard.community == -1 || wizard.vendor == -1 || wizard.model == -1 || isEmptyObject(images)) {
         return;
       }
 
@@ -401,12 +434,16 @@ var firmwarewizard = function() {
 
     // Show branch selection
     function showBranches() {
-      if (wizard.model == -1 || wizard.revision == -1 || wizard.imageType == -1 || isEmptyObject(images)) {
+      if (wizard.community == -1
+        || wizard.model == -1
+        || wizard.revision == -1
+        || wizard.imageType == -1
+        || isEmptyObject(images)) {
         return;
       }
 
       var revisions = images[wizard.vendor][wizard.model]
-        .filter(function(e) { return e.revision == wizard.revision && e.type == wizard.imageType; });
+        .filter(function(e) { return e.community == wizard.community && e.revision == wizard.revision && e.type == wizard.imageType; });
 
       $('#branchselect').innerHTML = '';
       $('#branch-experimental-dl').innerHTML = '';
@@ -424,6 +461,20 @@ var firmwarewizard = function() {
     showBranches();
 
     function updateHardwareSelection() {
+      hide('#vendorselect');
+      hide('#modelselect');
+      hide('#revisionselect');
+
+      if (wizard.community !== -1) {
+          show_inline('#vendorselect');
+        if (wizard.vendor !== -1) {
+          show_inline('#modelselect');
+          if (wizard.model !== -1) {
+            show_inline('#revisionselect');
+          }
+        }
+      }
+      /*
       if (wizard.vendor == -1) {
         hide('#modelselect');
         hide('#revisionselect');
@@ -435,12 +486,13 @@ var firmwarewizard = function() {
           show_inline('#revisionselect');
         }
       }
+      */
     }
     updateHardwareSelection();
 
     function updatePanes() {
       var pane = PANE.MODEL;
-      if (wizard.vendor != -1 && wizard.model != -1 && wizard.revision != -1) {
+      if (wizard.community != -1 &&  wizard.vendor != -1 && wizard.model != -1 && wizard.revision != -1) {
         pane = PANE.IMAGETYPE;
         if (wizard.imageType != -1) {
           pane = PANE.BRANCH;
@@ -455,8 +507,11 @@ var firmwarewizard = function() {
 
     // Show branches
     function updateCurrentVersions() {
-      var branches = ObjectValues(config.directories)
-        .filter(function(value, index, self) { return self.indexOf(value) === index; });
+      var branches = [];
+      if (wizard.community !== -1) {
+        branches = ObjectValues(config.directories[wizard.community])
+          .filter(function(value, index, self) { return self.indexOf(value) === index; });
+      }
 
       $('#currentVersions').innerHTML = branches.reduce(function(ret, branch, i) {
         ret += ((i === 0) ? '' : ' // ') + branch;
@@ -525,11 +580,11 @@ var firmwarewizard = function() {
     updateFirmwareTable();
   }
 
-  function loadSite(url, callback) {
+  function loadSite(community, url, callback) {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
       if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-        callback(xmlhttp.responseText, url);
+        callback(xmlhttp.responseText, community, url);
       }
     };
     xmlhttp.open('GET', url, true);
@@ -547,9 +602,9 @@ var firmwarewizard = function() {
       return 0;
     });
 
-    var parseSite = function(data, indexPath) {
-      var basePath = indexPath.substring(0, indexPath.lastIndexOf('/') + 1);
-      var branch = config.directories[indexPath];
+    var parseSite = function(data, community, url) {
+      var basePath = url.substring(0, url.lastIndexOf('/') + 1);
+      var branch = config.directories[community][url];
       reLink.lastIndex = 0;
 
       var m;
@@ -564,7 +619,7 @@ var firmwarewizard = function() {
           if (match) {
             var devices = vendormodels_reverse[match[1]];
             for (var i in devices) {
-              parseFilePath(devices[i], match[1], basePath, href, branch);
+              parseFilePath(devices[i], match[1], basePath, href, community, branch);
             }
           } else if (config.listMissingImages) {
             console.log("No rule for firmware image:", href);
@@ -581,9 +636,11 @@ var firmwarewizard = function() {
     // Match image files
     var reMatch = new RegExp('(' + matches.join('|') + ')[.-]');
 
-    for (var indexPath in config.directories) {
-      // Retrieve the contents of the directory
-      loadSite(indexPath, parseSite);
+    for (var community in config.directories) {
+      for (var url in config.directories) {
+        // Retrieve the contents of the directory
+        loadSite(community, url, parseSite);
+      }
     }
   }
 
