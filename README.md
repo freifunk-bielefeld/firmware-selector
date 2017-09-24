@@ -7,6 +7,8 @@ Some [Screenshots](docs/screenshots.md).
 
 ### Configuration
 
+Copy `config_template.js` to `config.js` and change the settings if necessary.
+
 #### Apache Webserver
 Create a `.htaccess` file that enables directory listings:
 ```
@@ -22,7 +24,7 @@ location /path/to/builds/ {
 ```
 
 #### Python Webserver
-For testing purposes or to share files in a LAN, Python can be used. Run `python -m http.server 8080` from within this directory (the directory where `README.md` can be found) and you are done.
+For testing purposes or to share files in a LAN, Python can be used. Run `python3 -m http.server 8080` from within this directory (the directory where `README.md` can be found) and you are done.
 
 ### Model Database
 All available router models are specified in `devices.js` via that will match against the filenames.
