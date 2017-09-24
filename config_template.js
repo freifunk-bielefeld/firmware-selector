@@ -20,7 +20,8 @@ var config = {
   vendormodels: vendormodels,
   // relative image paths and branch
   directories: {
-    // some demo sources
+    // the images will be extracted from
+    // directory listings of the web server
     './images/gluon-factory-example.html': 'stable',
     './images/gluon-sysupgrade-example.html': 'stable'
   }
