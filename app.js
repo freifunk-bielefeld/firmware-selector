@@ -61,7 +61,7 @@ var firmwarewizard = function() {
   function buildVendorModelsReverse() {
     var vendormodels_reverse = {};
 
-    // create a map of {match : [{vendor, model, default-revision}, ... ], ...}
+    // Create a map of {match : [{vendor, model, default-revision}, ... ], ...}
     for (var vendor in config.vendormodels) {
       var models = config.vendormodels[vendor];
       for (var model in models) {
@@ -85,7 +85,7 @@ var firmwarewizard = function() {
       parameters += '&' + key + '=' + encodeURIComponent(wizard[key]);
     }
 
-    // replace first occurence of "&" by "?"
+    // Replace first occurence of "&" by "?"
     parameters = parameters.replace('&', '?');
     history.pushState(wizard, '', parameters);
   }
@@ -124,7 +124,7 @@ var firmwarewizard = function() {
     alert('Da ist was schiefgelaufen. Frage doch bitte einmal im Chat nach.');
   };
 
-  // methods to set options
+  // Methods to set options
 
   app.setVendor = function(vendor) {
     wizard.vendor = vendor;
@@ -141,7 +141,7 @@ var firmwarewizard = function() {
     wizard.imageType = -1;
 
     if (wizard.model != -1) {
-      // skip revision selection if there is only one option left
+      // Skip revision selection if there is only one option left
       var revisions = getRevisions();
       if (revisions.length == 1) {
         app.setRevision(revisions[0], true);
@@ -182,7 +182,7 @@ var firmwarewizard = function() {
     updateHTML(wizard);
   };
 
-  // exclude file names containing a string
+  // Exclude file names containing a string
   function ignoreFileName(name) {
     for (var i in IGNORED_ELEMENTS) {
       if (name.indexOf(IGNORED_ELEMENTS[i]) != -1) {
@@ -192,7 +192,7 @@ var firmwarewizard = function() {
     return false;
   }
 
-  // simplified version string sort
+  // Simplified version string sort
   function sortByRevision(revisions) {
     revisions.sort(function(a, b) {
         a = a.revision; b = b.revision;
@@ -211,13 +211,13 @@ var firmwarewizard = function() {
   }
 
   function findVersion(name) {
-    // version with optional date in it (e.g. 0.8.0~20160502)
+    // Version with optional date in it (e.g. 0.8.0~20160502)
     var m = /-([0-9]+.[0-9]+.[0-9]+(~[0-9]+)?)[.-]/.exec(name);
     return m ? m[1] : '';
   }
 
   function findRevision(name) {
-    // reversion identifier like a1, v2
+    // Reversion identifier like a1, v2
     var m = /-([a-z][0-9]+(.[0-9]+)?)[.-]/.exec(name);
     return m ? m[1] : 'alle';
   }
@@ -260,7 +260,7 @@ var firmwarewizard = function() {
       revision += '-' + region;
     }
 
-    // collect branch versions
+    // Collect branch versions
     app.currentVersions[branch] = version;
 
     if (!(device.vendor in images)) {
@@ -298,7 +298,7 @@ var firmwarewizard = function() {
       .sort();
   }
 
-  // update all elements of the page according to the wizard object.
+  // Update all elements of the page according to the wizard object
   function updateHTML(wizard) {
     if (wizard.showFirmwareTable) {
       show_block('#firmwareTable');
@@ -325,7 +325,7 @@ var firmwarewizard = function() {
     }
     showVendors();
 
-    // show model dropdown menu
+    // Show model dropdown menu
     function showModels() {
       var select = $('#modelselect');
 
@@ -347,7 +347,7 @@ var firmwarewizard = function() {
     }
     showModels();
 
-    // show revision dropdown menu
+    // Show revision dropdown menu
     function showRevisions() {
       var select = $('#revisionselect');
 
@@ -370,7 +370,7 @@ var firmwarewizard = function() {
     }
     showRevisions();
 
-    // show image type selection
+    // Show image type selection
     function showImageTypes() {
       if (wizard.model == -1 || isEmptyObject(images)) {
         return;
@@ -399,7 +399,7 @@ var firmwarewizard = function() {
     }
     showImageTypes();
 
-    // show branch selection
+    // Show branch selection
     function showBranches() {
       if (wizard.model == -1 || wizard.revision == -1 || wizard.imageType == -1 || isEmptyObject(images)) {
         return;
@@ -453,6 +453,7 @@ var firmwarewizard = function() {
     }
     updatePanes();
 
+    // Show branches
     function updateCurrentVersions() {
       var branches = ObjectValues(config.directories)
         .filter(function(value, index, self) { return self.indexOf(value) === index; });
@@ -535,11 +536,11 @@ var firmwarewizard = function() {
     xmlhttp.send();
   }
 
-  // parse the contents of the given directories
+  // Parse the contents of the given directories
   function loadDirectories() {
     var vendormodels_reverse = buildVendorModelsReverse();
 
-    // sort by length to get the longest match
+    // Sort by length to get the longest match
     var matches = Object.keys(vendormodels_reverse).sort(function(a, b) {
       if (a.length < b.length) return 1;
       if (a.length > b.length) return -1;
@@ -574,21 +575,21 @@ var firmwarewizard = function() {
       updateHTML(wizard);
     }
 
-    // match all links
+    // Match all links
     var reLink = new RegExp('href="([^"]*)"', 'g');
 
-    // match image files
-    var reMatch = new RegExp('('+matches.join('|')+')[.-]');
+    // Match image files
+    var reMatch = new RegExp('(' + matches.join('|') + ')[.-]');
 
     for (var indexPath in config.directories) {
-      // retrieve the contents of the directory
+      // Retrieve the contents of the directory
       loadSite(indexPath, parseSite);
     }
   }
 
   loadDirectories();
 
-  // set link to firmware source directory
+  // Set link to firmware source directory
   for(var path in config.directories) {
     $('#firmware-source-dir').href = path.replace(/\/[^\/]*$/, '');
     break;
