@@ -31,9 +31,13 @@ var vendormodels = {
   },
 
   "GL Innovations": {
-    "AR150": "ar150",
-    "iNet 6408a": "inet-6408a",
-    "iNet 6416a": "inet-6416a"
+    "AR150": "gl-ar150",
+    "AR300M": "gl-ar300m",
+    "iNet 6408a": "gl-inet-6408a",
+    "iNet 6416a": "g-inet-6416a",
+    "GL-MT300a": "gl-mt300a",
+    "GL-MT300n": "gl-mt300n",
+    "GL-MT750": "gl-mt750"
   },
 
   "LeMaker": {
@@ -43,7 +47,8 @@ var vendormodels = {
   },
 
   "Linksys": {
-    "WRT160NL": "wrt160nl"
+    "WRT160NL": "wrt160nl",
+    "WRT1200AC": "linksys-wrt1200ac"
   },
 
   "Meraki": {
@@ -63,6 +68,10 @@ var vendormodels = {
     "WNDR3800": "wndr3800",
     "WNDR4300": "wndr4300",
     "WNDRMAC": {"wndrmac": "v1", "wndrmacv2": "v2"},
+  },
+
+  "Nexx": {
+    "WT3020" : "wt3020"
   },
 
   "Onion": {
@@ -87,7 +96,8 @@ var vendormodels = {
 
   "Raspberry Pi Foundation": {
     "PI": "raspberry-pi",
-    "PI 2": "raspberry-pi-2"
+    "PI 2": "raspberry-pi-2",
+    "PI 3": "raspberry-pi-3"
   },
   
   "Fujitsu/Siemens": {
@@ -97,6 +107,8 @@ var vendormodels = {
   "TP-Link": {
     "Archer C5": {"archer-c5": "v1"},
     "Archer C7": "archer-c7",
+    "Archer C25": "archer-c25",
+    "Archer C2600": {"archer-c2600": "v1"},
     "CPE 210": {"cpe210": "", "cpe210-220": ""},
     "CPE 220": {"cpe220": "", "cpe210-220": ""},
     "CPE 510": {"cpe510": "", "cpe510-520": ""},
@@ -109,6 +121,8 @@ var vendormodels = {
     "TL-MR3220": "tl-mr3220",
     "TL-MR3420": "tl-mr3420",
     "TL-WA701N-ND": {"tl-wa701n": "", "tl-wa701nd": ""},
+    "TL-WA7210N-ND": "tl-wa7210n",
+    "TL-WA730RE": "tl-wa730re",
     "TL-WA750RE": "tl-wa750re",
     "TL-WA7510N": "tl-wa7510n",
     "TL-WA801N-ND": {"tl-wa801n": "", "wa801nd": ""},
@@ -125,19 +139,21 @@ var vendormodels = {
     "TL-WR703N": "tl-wr703n",
     "TL-WR710N": "tl-wr710n",
     "TL-WR740N-ND": "tl-wr740n",
-    "TL-WR741N-ND": "tl-wr741n",
+    "TL-WR741N-ND": "tl-wr741nd",
     "TL-WR743N-ND": "tl-wr743n",
     "TL-WR841N-ND": {"tl-wr841n":  "", "tl-wr841nd": "", "tl-wr841": ""},
     "TL-WR842N-ND": "tl-wr842n",
-    "TL-WR843N-ND": "tl-wr843n",
-    "TL-WR940N-ND": {"tl-wr940n": "", "tl-wr941nd-v4": "v1", "tl-wr941nd-v5": "v2", "tl-wr941nd-v6": "v3"},
+    "TL-WR843N-ND": "tl-wr843nd",
+    "TL-WR940N-ND": {"tl-wr940n": "", "tl-wr941n-v4": "v1", "tl-wr941nd-v5": "v2", "tl-wr941nd-v6": "v3"},
     "TL-WR941N-ND": {"wr941n-nd": "", "tl-wr941nd": "", "tl-wr941nd-v4": "v4", "tl-wr941nd-v5": "v5", "tl-wr941nd-v6": "v6"}
   },
 
   "Ubiquiti": {
     "AirGateway": {"ubnt-air-gateway": "", "ubiquiti-airgateway": ""},
-    "AirRouter": {"ubnt-air-router": "", "ubiquiti-airrouter": ""},
+    "AirRouter": {"ubnt-airrouter": "", "ubiquiti-airrouter": ""},
     "Bullet": {"bullet-m2": "M2", "bullet-m5": "M5", "bullet-m": "M2/M5"},
+    "EdgeRouter X": "ubnt-erx",
+    "EdgeRouter X-SFP": "ubnt-erx-sfp",
     "Litestation SR71": "ls-sr71",
     "NanoStation Loco": {"loco-m-xw": "M2/M5 XW", "loco-m2": "M2 XM", "loco-m5": "M5 XM", "loco-m2-xw": "M2 XW", "loco-m5-xw": "M5 XW"},
     "NanoStation": {"nanostation-m": "M2/M5 XM", "nano-m": "M2/M5 XM", "nanostation-m-xw": "M2/M5 XW", "nano-m-xw": "M2/M5 XW",
@@ -154,6 +170,10 @@ var vendormodels = {
     "UniFi AP Outdoor+": {"unifi-outdoor-plus": "", "ubiquiti-unifiap-outdoor+": "", "ubiquiti-unifiap-outdoor%2B": ""}
   },
 
+  "Unbranded": {
+    "A5-V11": "a5-v11"
+  },
+
   "Western Digital": {
     "My Net N600": "my-net-n600",
     "My Net N750": "my-net-n750"
@@ -168,5 +188,9 @@ var vendormodels = {
     "VMware 64bit": "x86-64-vmware",
     "KVM 32bit": "x86-kvm",
     "XEN 32bit": "x86-xen",
-  }
+  },
+
+  "Xiaomi": {
+    "MiWiFi Mini": "xiaomi-miwifi-mini"
+  },
 };
