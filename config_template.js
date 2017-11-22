@@ -14,13 +14,13 @@
  */
 
 var config = {
-  // list images on console that match no model
+  // List images in browser console that match no model
   listMissingImages: false,
-  // see devices.js for different vendor model maps
+  // See devices.js for different vendor model maps
   vendormodels: vendormodels,
-  // relative image paths and branch
+  // Relative image paths and branch
   directories: {
-    // the images will be extracted from
+    // The images will be extracted from
     // directory listings of the web server
     './images/gluon-factory-example.html': 'stable',
     './images/gluon-sysupgrade-example.html': 'stable'
