@@ -127,7 +127,7 @@ var vendormodels = {
     "TL-WR740N-ND": "tl-wr740n",
     "TL-WR741N-ND": "tl-wr741n",
     "TL-WR743N-ND": "tl-wr743n",
-    "TL-WR841N-ND": {"tl-wr841n":  "", "tl-wr841nd": ""},
+    "TL-WR841N-ND": {"tl-wr841n":  "", "tl-wr841nd": "", "tl-wr841": ""},
     "TL-WR842N-ND": "tl-wr842n",
     "TL-WR843N-ND": "tl-wr843n",
     "TL-WR940N-ND": {"tl-wr940n": "", "tl-wr941nd-v4": "v1", "tl-wr941nd-v5": "v2", "tl-wr941nd-v6": "v3"},
