@@ -81,6 +81,7 @@ hr {
 .table td, th {
   padding: 8px;
   text-align: left;
+  white-space: nowrap;
 }
 
 .table td {
