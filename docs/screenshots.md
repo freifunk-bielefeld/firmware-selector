@@ -1,8 +1,8 @@
 
-##Firmware selection
+## Firmware selection
 
 ![selection](/docs/selection.png)
 
-##Firmware table
+## Firmware table
 
 ![table](/docs/table.png)
