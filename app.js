@@ -17,6 +17,18 @@ function $(s) {
   return document.getElementById(s.substring(1));
 }
 
+function append(parent, tag) {
+  var e = document.createElement(tag);
+  parent.appendChild(e);
+  return e;
+}
+
+function clearChildren(parent) {
+  while (parent.firstChild) {
+    parent.removeChild(parent.firstChild);
+  }
+}
+
 function toggleClass(s, cssClass) {
   $(s).classList.toggle(cssClass);
 }
@@ -56,20 +68,16 @@ function tr(id) {
   }
 }
 
-function applyLanguage() {
-  if (config.language in translations) {
-    var mapping = translations[config.language];
-    for (var id in mapping) {
-      var elements = document.getElementsByClassName(id);
-      for (var i in elements) {
-        var e = elements[i];
-        if (elements.hasOwnProperty(i)) {
-          e.innerHTML = mapping[id];
-        }
+// Change the translation of the entire document
+function changeTranslation() {
+  var mapping = translations[config.language];
+  for (var id in mapping) {
+    var elements = document.getElementsByClassName(id);
+    for (var i in elements) {
+      if (elements.hasOwnProperty(i)) {
+        elements[i].textContent = mapping[id];
       }
     }
-  } else {
-    console.log('Invalid language setting in config.js: ' + config.language);
   }
 }
 
@@ -210,6 +218,14 @@ var firmwarewizard = function() {
     updateHTML(wizard);
   };
 
+  app.changeLanguage = function(lang) {
+    if (lang in translations) {
+      config.language = lang;
+      changeTranslation();
+      updateHTML(wizard);
+    }
+  }
+
   // Exclude file names containing a string
   function ignoreFileName(name) {
     for (var i in IGNORED_ELEMENTS) {
@@ -247,7 +263,7 @@ var firmwarewizard = function() {
   function findRevision(name) {
     // Reversion identifier like a1, v2
     var m = /-([a-z][0-9]+(.[0-9]+)?)[.-]/.exec(name);
-    return m ? m[1] : 'alle';
+    return m ? m[1] : tr('tr-all');
   }
 
   function findRegion(name) {
@@ -624,7 +640,7 @@ var firmwarewizard = function() {
   }
 
   // Translate all texts
-  applyLanguage();
+  app.changeLanguage(config.language);
 
   return app;
 }();

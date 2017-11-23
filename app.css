@@ -92,10 +92,23 @@ hr {
   border-bottom: 2px solid #ddd;
 }
 
-#currentVersions {
-  float:right;
+.header {
+  display: flex;
+  cursor: default;
+}
+
+.header > * {
+  flex: 1;
   padding: .5em;
   color: #999;
+}
+
+#currentLanguages {
+  text-align: left;
+}
+
+#currentVersions {
+  text-align: right !important;
 }
 
 #firmwareTable {

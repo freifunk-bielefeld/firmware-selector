@@ -8,7 +8,12 @@
     <link rel="stylesheet" href="app.css" />
   </head>
   <body>
-    <div id="currentVersions">
+    <div class="header">
+      <div id="currentLanguages">
+        <span onclick="firmwarewizard.changeLanguage('en')">EN</span> |
+        <span onclick="firmwarewizard.changeLanguage('de')">DE</span>
+      </div>
+      <div id="currentVersions"></div>
     </div>
     <div id="wizard" class="container">
       <img src="./router.png" >
