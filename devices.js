@@ -108,7 +108,7 @@ var vendormodels = {
     "Archer C5": {"archer-c5": "v1"},
     "Archer C7": "archer-c7",
     "Archer C25": "archer-c25",
-    "Archer C2600": {"archer-c2600": "v1"},
+    "Archer C2600": {"C2600": "v1"},
     "CPE 210": {"cpe210": "", "cpe210-220": ""},
     "CPE 220": {"cpe220": "", "cpe210-220": ""},
     "CPE 510": {"cpe510": "", "cpe510-520": ""},
