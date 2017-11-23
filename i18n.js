@@ -73,4 +73,4 @@ var translations = {
 }
 
 // Complement translations based on other translations
-translations['de-freifunk'] = Object.assign({}, translations['de-freifunk'], translations['de']);
+translations['de-freifunk'] = Object.assign({}, translations['de'], translations['de-freifunk']);
