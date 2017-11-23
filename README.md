@@ -5,6 +5,14 @@ This Firmware Wizard lets a user select the correct firmware for his device. Dir
 
 Some [Screenshots](docs/screenshots.md).
 
+Similar projects:
+
+- [Gluon Firmware Wizard](
+https://github.com/freifunk-darmstadt/gluon-firmware-wizard)
+
+- [Freifunk Hennef Firmware Downloader](https://github.com/Freifunk-Hennef/ffhef-fw-dl)
+
+
 ### Configuration
 
 Copy `config_template.js` to `config.js` and change the settings if necessary.
