@@ -19,12 +19,15 @@ var config = {
   // See devices.js for different vendor model maps
   vendormodels: vendormodels,
   // Default language, see i18n.js
-  language: 'de-freifunk',
-  // Relative image paths and branch
+  language: 'en',
+  // Data source and branch
   directories: {
-    // The images will be extracted from
-    // directory listings of the web server
+    // Scrape image paths from html files
     './images/gluon-factory-example.html': 'stable',
     './images/gluon-sysupgrade-example.html': 'stable'
+    // Or from directory listings
+    //'https://downloads.lede-project.org/releases/17.01.4/targets/ar71xx/generic/': 'stable'
+    // Or use a JSON API
+    //'https://downloads.lede-project.org/releases/17.01.4/targets/?json': 'stable'
   }
 };

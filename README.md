@@ -7,7 +7,7 @@ Some [Screenshots](docs/screenshots.md).
 
 Features:
 
-- scrapes HTML file listings of vanilla OpenWrt/LEDE images
+- can scrape HTML file listings or read a JSON API (array of image path strings)
 - English and German translations available
 - supports stable, beta and experimental image selection
 
