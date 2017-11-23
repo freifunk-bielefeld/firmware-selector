@@ -435,13 +435,13 @@ var firmwarewizard = function() {
         input.id = 'radiogroup-typeselect-' + type;
         input.checked = (type == wizard.imageType) ? 'checked ' : '';
         input.name = 'firmwareType';
-        input.addEventListener('click', function(type) {
-          return function() { firmwarewizard.setImageType(type); }; }(type)
-        );
+        input.addEventListener('click', (function(type) {
+          return function() { firmwarewizard.setImageType(type); };
+        })(type));
 
         // Add label element
         var label = append(p, 'label');
-        label.for = 'radiogroup-typeselect-' + type;
+        label.setAttribute('for', 'radiogroup-typeselect-' + type);
         label.classList.add(typeNames[type] || '');
         label.textContent = tr(typeNames[type]) || type;
       }
@@ -469,10 +469,10 @@ var firmwarewizard = function() {
           // Add button element
           var button = append(bs, 'button');
           button.classList.add('btn', 'dl-snapshot');
-          button.addEventListener('click', function() {
+          button.onclick = function() {
             toggleClass($('#branch-pane'), 'show-snapshot-warning');
             scrollDown();
-          });
+          };
           button.textContent = rev.branch + ' (' + rev.version + ')';
 
           // Add link element
@@ -480,7 +480,7 @@ var firmwarewizard = function() {
           a.href = rev.location;
           a.classList.add('btn', 'tr-download-snapshot');
           a.textContent = tr('tr-download-snapshot');
-       } else {
+        } else {
           // Add link element
           var a = append(bs, 'a');
           a.href = rev.location;
