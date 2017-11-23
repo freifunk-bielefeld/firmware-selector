@@ -45,6 +45,33 @@ function isEmptyObject(obj) {
     return true;
 }
 
+function tr(id) {
+  var mapping = translations[config.language];
+  if (id in mapping) {
+    return mapping[id];
+  } else {
+    console.log('Missing translation of token "' + id + '" (' + config.language + ')');
+    return id;
+  }
+}
+
+function applyLanguage() {
+  if (config.language in translations) {
+    var mapping = translations[config.language];
+    for (var id in mapping) {
+      var elements = document.getElementsByClassName(id);
+      for (var i in elements) {
+        var e = elements[i];
+        if (elements.hasOwnProperty(i)) {
+          e.innerHTML = mapping[id];
+        }
+      }
+    }
+  } else {
+    console.log('Invalid language setting in config.js: ' + config.language);
+  }
+}
+
 var firmwarewizard = function() {
   var app = {};
 
@@ -121,7 +148,7 @@ var firmwarewizard = function() {
   };
 
   app.genericError = function() {
-    alert('Da ist was schiefgelaufen. Frage doch bitte einmal im Chat nach.');
+    alert(tr('tr-generic-error'));
   };
 
   // Methods to set options
@@ -313,7 +340,7 @@ var firmwarewizard = function() {
       var select = $('#vendorselect');
       select.innerHTML = '';
       select.appendChild(
-        createOption(-1, '-- Bitte Hersteller wählen --')
+        createOption(-1, tr('tr-select-manufacturer'))
       );
 
       var vendors = Object.keys(images).sort();
@@ -331,7 +358,7 @@ var firmwarewizard = function() {
 
       select.innerHTML = '';
       select.appendChild(
-        createOption(-1, '-- Bitte Modell wählen --')
+        createOption(-1, tr('tr-select-model'))
       );
 
       if (wizard.vendor == -1 || isEmptyObject(images)) {
@@ -354,7 +381,7 @@ var firmwarewizard = function() {
       select.innerHTML = '';
 
       select.appendChild(
-        createOption(-1, '-- Bitte Hardwarerevision wählen --', wizard.revision)
+        createOption(-1, tr('tr-select-revision'), wizard.revision)
       );
 
       if (wizard.vendor  == -1 || wizard.model == -1 || isEmptyObject(images)) {
@@ -379,10 +406,10 @@ var firmwarewizard = function() {
       var content = '';
       var types = getImageTypes();
       var typeNames = {
-        'factory': 'Erstinstallation',
-        'sysupgrade': 'Upgrade',
-        'rootfs': "Root-Image",
-        'kernel': "Kernel-Image"
+        'factory': tr('tr-factory'),
+        'sysupgrade': tr('sysupgrade'),
+        'rootfs': tr('tr-roofs'),
+        'kernel': tr('tr-kernel')
       };
 
       for (var i in types) {
@@ -415,7 +442,7 @@ var firmwarewizard = function() {
         var rev = revisions[i];
         if (rev.branch == 'experimental') {
           $('#branchselect').innerHTML += '<button class="btn dl-expermental" onclick="toggleClass(\'#branch-pane\', \'show-experimental-warning\');">'+rev.branch+' (' +rev.version+')</button>';
-          $('#branch-experimental-dl').innerHTML = '<a href="'+rev.location+'" class="btn">Download für Experimentierfreudige</a>';
+          $('#branch-experimental-dl').innerHTML = '<a href="'+rev.location+'" class="btn tr-download-experimental">Download for testers</a>';
         } else {
           $('#branchselect').innerHTML += '<a href="'+rev.location+'" class="btn">'+rev.branch+' (' +rev.version+')</a>';
         }
@@ -594,6 +621,9 @@ var firmwarewizard = function() {
     $('#firmware-source-dir').href = path.replace(/\/[^\/]*$/, '');
     break;
   }
+
+  // Translate all texts
+  applyLanguage();
 
   return app;
 }();

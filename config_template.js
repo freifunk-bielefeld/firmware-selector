@@ -18,6 +18,8 @@ var config = {
   listMissingImages: false,
   // See devices.js for different vendor model maps
   vendormodels: vendormodels,
+  // Default language, see i18n.js
+  language: 'de-freifunk',
   // Relative image paths and branch
   directories: {
     // The images will be extracted from

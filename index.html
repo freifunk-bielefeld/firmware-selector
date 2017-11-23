@@ -14,41 +14,41 @@
       <img src="./router.png" >
       <div class="tab-content">
         <div id="model-pane" style="display: block;">
-          <span class="firmwareTableLink" onclick="firmwarewizard.showFirmwareTable();">Tabelle anzeigen</span>
-          <h1>Wähle deine Firmware</h1>
-          <p>Erst mit der Freifunk-Firmware wird dein Router zu einem Teil des Freifunk-Netzes. Sie ist fertig vorkonfiguriert, um Kontakt mit benachbarten Freifunk-Knoten aufzunehmen, ein offenes und anonymes Freifunk-WLAN auszusenden und dich dabei vor der Störerhaftung zu schützen.</p>
+          <span class="firmwareTableLink tr-show-table" onclick="firmwarewizard.showFirmwareTable();">Show table</span>
+          <h1 class="tr-select-firmware">Select your image</h1>
+          <p class="tr-introduction">The firmware puts a Linux based operating system on your device. It allows you to install additional software.</p>
           <select id="vendorselect" class="ulselect" onchange="firmwarewizard.setVendor(this.value)"></select>
           <select id="modelselect" class="ulselect" style="display: none;" onchange="firmwarewizard.setModel(this.value)"></select>
           <select id="revisionselect" class="ulselect" style="display: none;" onchange="firmwarewizard.setRevision(this.value)"></select>
         </div>
         <div id="type-pane">
           <hr>
-          <p>
-            Bitte verwende das <em>Erstinstallationsimage</em>, wenn Du deinen Router gerade erst gekauft hast und sich darauf noch keine Freifunk-/OpenWRT-Firmware befindet. Ist bereits eine Freifunk- oder OpenWRT-Firmware installiert, verwende bitte die mit <em>Upgrade</em> bezeichnete Version.
+          <p class="tr-introduction-additional">
+            If you have just bought the device, please choose the <em>first installation</em> image. If you have already installed LEDE/OpenWRT, use the <em>upgrade</em> images.
           </p>
           <div id="typeselect" class="radiogroup"></div>
         </div>
         <div id="branch-pane">
           <hr>
-          <p>Diese Freifunk-Firmware bieten wir in verschiedenen Versionen an:</p>
+          <p class="tr-different-versions">This firmware is available in different versions:</p>
           <ul>
             <li>
-              <strong>Stable <sup><span style="color: #ffb400">Empfehlung</span></sup></strong><br />
-              Gut getestet, zuverl&auml;ssig und stabil.<br />
+              <strong>Stable <sup><span style="color: #ffb400" class="tr-recommendation">Recommendation</span></sup></strong><br />
+              <span class="tr-stable-desciption">Well tested, reliable and stable.</span<br />
             </li>
             <li>
               <strong>Beta</strong><br />
-              Vorabtests neuer Stable-Kandidaten.<br />
+              <span class="tr-beta-desciption">Testing candidates for the next stable release.</span><br />
             </li>
             <li>
               <strong>Experimental</strong><br />
-              Ungetestet, automatisch generiert.<br />
+              <span class="tr-experimental-desciption">Untested, build automatically.</span><br />
             </li>
           </ul>
-          <p>Die Auswahl der passenden Version entscheidet &uuml;ber die Stablit&auml;t des Routers und den potentiell anfallenden Wartungsaufwand.</p>
-          <p>Für das gewählte Routermodell sind folgende Versionen vorhanden:</p>
-          <div class="box-inset warning-experimental">
-            Vorsicht! Unsere experimentelle Firmware wurde <b>nicht</b> getestet und kann dein Gerät jederzeit und unangekündigt in einen Zustand versetzen, in dem du nur mit einem Lötkolben und dem Öffnen des Gehäuses weiter kommst. Verwende diese Version nur, wenn Du Dir darüber im Klaren bist!
+          <p class="tr-selection-consequences">The selection of the model decides how stable the version will be and decides the potential maintenance requirements.</p>
+          <p class="tr-available-versions">For the selected router model, the following router versions are available:</p>
+          <div class="box-inset warning-experimental tr-experimental-warning">
+            Attention! The following images were <b>not</b> tested und might cause your device to put it in state that might need soldering. Please use this version only if you know what you do!
             <div id="branch-experimental-dl"></div>
           </div>
           <div id="branchselect"></div>
@@ -58,32 +58,34 @@
 
     <div id="firmwareTable" class="container" style="display: none;">
       <hr>
-      <span class="firmwareTableLink"
-            onclick="firmwarewizard.hideFirmwareTable();">
-        zurück zum Auswahlmenü
+      <span class="firmwareTableLink tr-back-to-selection" onclick="firmwarewizard.hideFirmwareTable();">
+        Back to the selection
       </span>
       <br>
-      <span class="firmwareTableLink"><a id="firmware-source-dir" href="..">Liste aller Dateien</a></span>
+      <span class="firmwareTableLink">
+        <a id="firmware-source-dir" href=".." class="tr-list-files">List all files</a>
+      </span>
       <a name="firmwareTable"></a>
-      <h1>Firmware</h1>
+      <h1 class="tr-firmware">Firmware</h1>
       <table class="table table-striped">
         <thead>
           <tr>
-            <th>Hersteller</th>
-            <th>Modell</th>
-            <th>Erstinstallation</th>
-            <th>Upgrade</th>
+            <th class="tr-manufacturer">Manufacturer</th>
+            <th class="tr-model">Modell</th>
+            <th class="tr-first-installation">First installation</th>
+            <th class="tr-upgrade">Upgrade</th>
           </tr>
         </thead>
         <tbody id="firmwareTableBody">
           <tr>
-            <td colspan="4">Loading...</td>
+            <td colspan="4" class="tr-loading">Loading...</td>
           </tr>
         </tbody>
       </table>
     </div>
 
     <script src="devices.js"></script>
+    <script src="i18n.js"></script>
     <script src="config.js"></script>
     <script src="app.js"></script>
   </body>
