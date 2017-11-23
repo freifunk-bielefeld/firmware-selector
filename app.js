@@ -45,16 +45,11 @@ function hide(s) {
   $(s).style.display = 'none';
 }
 
-// Object.values() replacement
-function ObjectValues(obj) {
-  return Object.keys(obj).map(function(key) { return obj[key]; });
-}
-
 function isEmptyObject(obj) {
-    for (var name in obj) {
-      return false;
-    }
-    return true;
+  for (var name in obj) {
+    return false;
+  }
+  return true;
 }
 
 // Translate a single text id
@@ -324,7 +319,7 @@ var firmwarewizard = function() {
   function createOption(value, title, selectedOption) {
     var o = document.createElement('option');
     o.value = value;
-    o.innerHTML = title;
+    o.textContent = title;
     o.selected = (value === selectedOption);
     return o;
   }
@@ -355,7 +350,8 @@ var firmwarewizard = function() {
     // show vendor dropdown menu.
     function showVendors() {
       var select = $('#vendorselect');
-      select.innerHTML = '';
+      clearChildren(select);
+
       select.appendChild(
         createOption(-1, tr('tr-select-manufacturer'))
       );
@@ -372,8 +368,8 @@ var firmwarewizard = function() {
     // Show model dropdown menu
     function showModels() {
       var select = $('#modelselect');
+      clearChildren(select);
 
-      select.innerHTML = '';
       select.appendChild(
         createOption(-1, tr('tr-select-model'))
       );
@@ -384,9 +380,9 @@ var firmwarewizard = function() {
 
       var models = Object.keys(images[wizard.vendor]).sort();
       for (var i in models) {
-          select.appendChild(
-            createOption(models[i], models[i], wizard.model)
-          );
+        select.appendChild(
+          createOption(models[i], models[i], wizard.model)
+        );
       }
     }
     showModels();
@@ -394,8 +390,7 @@ var firmwarewizard = function() {
     // Show revision dropdown menu
     function showRevisions() {
       var select = $('#revisionselect');
-
-      select.innerHTML = '';
+      clearChildren(select);
 
       select.appendChild(
         createOption(-1, tr('tr-select-revision'), wizard.revision)
@@ -420,26 +415,37 @@ var firmwarewizard = function() {
         return;
       }
 
-      var content = '';
       var types = getImageTypes();
       var typeNames = {
-        'factory': tr('tr-factory'),
-        'sysupgrade': tr('tr-sysupgrade'),
-        'rootfs': tr('tr-rootfs'),
-        'kernel': tr('tr-kernel')
+        'factory': 'tr-factory',
+        'sysupgrade': 'tr-sysupgrade',
+        'rootfs': 'tr-rootfs',
+        'kernel': 'tr-kernel'
       };
+
+      var p = $('#typeselect');
+      clearChildren(p);
 
       for (var i in types) {
         var type = types[i];
         if (type === '') continue;
 
-        var displayType = typeNames[type] || type;
-        content += '<input type="radio" id="radiogroup-typeselect-' +
-          type + '" ' + ((type == wizard.imageType) ? 'checked ' : '') +
-          'name="firmwareType" onclick="firmwarewizard.setImageType(\'' + type + '\');">' +
-          '<label for="radiogroup-typeselect-' + type + '">' + displayType + '</label>';
+        // Add input field
+        var input = append(p, 'input');
+        input.type = 'radio';
+        input.id = 'radiogroup-typeselect-' + type;
+        input.checked = (type == wizard.imageType) ? 'checked ' : '';
+        input.name = 'firmwareType';
+        input.addEventListener('click', function(type) {
+          return function() { firmwarewizard.setImageType(type); }; }(type)
+        );
+
+        // Add label element
+        var label = append(p, 'label');
+        label.for = 'radiogroup-typeselect-' + type;
+        label.classList.add(typeNames[type] || '');
+        label.textContent = tr(typeNames[type]) || type;
       }
-      $('#typeselect').innerHTML = content;
     }
     showImageTypes();
 
@@ -452,16 +458,32 @@ var firmwarewizard = function() {
       var revisions = images[wizard.vendor][wizard.model]
         .filter(function(e) { return e.revision == wizard.revision && e.type == wizard.imageType; });
 
-      $('#branchselect').innerHTML = '';
-      $('#branch-experimental-dl').innerHTML = '';
+      var bs = $('#branchselect');
+      var bd = $('#branch-experimental-dl');
+
+      clearChildren(bs);
+      clearChildren(bd);
 
       for (var i in revisions) {
         var rev = revisions[i];
         if (rev.branch == 'experimental') {
-          $('#branchselect').innerHTML += '<button class="btn dl-expermental" onclick="toggleClass(\'#branch-pane\', \'show-experimental-warning\');">'+rev.branch+' (' +rev.version+')</button>';
-          $('#branch-experimental-dl').innerHTML = '<a href="'+rev.location+'" class="btn tr-download-experimental">Download for testers</a>';
-        } else {
-          $('#branchselect').innerHTML += '<a href="'+rev.location+'" class="btn">'+rev.branch+' (' +rev.version+')</a>';
+          // Add button element
+          var button = append(bs, 'button');
+          button.class = "btn dl-expermental";
+          button.addEventListener('click', function() { toggleClass('#branch-pane', 'show-experimental-warning'); });
+          button.textContent = rev.branch + ' (' + rev.version + ')';
+
+          // Add link element
+          var a = append(bd, 'a');
+          a.href = rev.location;
+          a.classList.add('btn', 'tr-download-experimental');
+          a.textContent = tr('tr-download-experimental');
+       } else {
+          // Add link element
+          var a = append(bs, 'a');
+          a.href = rev.location;
+          a.classList.add('btn');
+          a.textContent = rev.branch + ' (' + rev.version + ')';
         }
       }
     }
@@ -499,7 +521,7 @@ var firmwarewizard = function() {
 
     // Show branches
     function updateCurrentVersions() {
-      var branches = ObjectValues(config.directories)
+      var branches = Object.values(config.directories)
         .filter(function(value, index, self) { return self.indexOf(value) === index; });
 
       $('#currentVersions').innerHTML = branches.reduce(function(ret, branch, i) {
@@ -511,7 +533,8 @@ var firmwarewizard = function() {
     updateCurrentVersions();
 
     function updateFirmwareTable() {
-      $('#firmwareTableBody').innerHTML = '';
+      var tb = $('#firmwareTableBody');
+      clearChildren(tb);
 
       var initializeRevHTML = function(rev) {
         upgradeHTML[rev.branch] = '';
@@ -528,7 +551,6 @@ var firmwarewizard = function() {
           show = true;
         }
       };
-
 
       var lines = '';
       var vendors = Object.keys(images).sort();
@@ -552,7 +574,7 @@ var firmwarewizard = function() {
           lines += '<tr><td>' + vendor + '</td><td>' + model + '</td><td>';
 
           for(var branch in factoryHTML) {
-            lines += branch + ': ' + (factoryHTML[branch] || '-')+ '<br>';
+            lines += branch + ': ' + (factoryHTML[branch] || '-') + '<br>';
           }
 
           lines += '</td><td>';
@@ -564,7 +586,7 @@ var firmwarewizard = function() {
           lines += '</td></tr>';
         }
       }
-      $('#firmwareTableBody').innerHTML = lines;
+      tb.innerHTML = lines;
     }
     updateFirmwareTable();
   }
