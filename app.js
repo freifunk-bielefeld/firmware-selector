@@ -70,7 +70,7 @@ function changeTranslation() {
     var elements = document.getElementsByClassName(id);
     for (var i in elements) {
       if (elements.hasOwnProperty(i)) {
-        elements[i].textContent = mapping[id];
+        elements[i].innerHTML = mapping[id];
       }
     }
   }
@@ -80,8 +80,7 @@ var firmwarewizard = function() {
   var app = {};
 
   var IGNORED_ELEMENTS = [
-    './', '../', 'experimental.manifest', 'beta.manifest', 'stable.manifest',
-    '-tftp', '-fat', '-loader', '-NA', '-x2-', '-hsv2', '-p1020'
+    './', '../', 'manifest', '-tftp', '-fat', '-loader', '-NA', '-x2-', '-hsv2', '-p1020'
   ];
   var PANE = {'MODEL': 0, 'IMAGETYPE': 1, 'BRANCH': 2};
 
