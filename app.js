@@ -459,25 +459,25 @@ var firmwarewizard = function() {
         .filter(function(e) { return e.revision == wizard.revision && e.type == wizard.imageType; });
 
       var bs = $('#branchselect');
-      var bd = $('#branch-experimental-dl');
+      var bd = $('#branch-snapshot-dl');
 
       clearChildren(bs);
       clearChildren(bd);
 
       for (var i in revisions) {
         var rev = revisions[i];
-        if (rev.branch == 'experimental') {
+        if (rev.branch == 'snapshot') {
           // Add button element
           var button = append(bs, 'button');
-          button.class = "btn dl-expermental";
-          button.addEventListener('click', function() { toggleClass('#branch-pane', 'show-experimental-warning'); });
+          button.class = "btn dl-snapshot";
+          button.addEventListener('click', function() { toggleClass('#branch-pane', 'show-snapshot-warning'); });
           button.textContent = rev.branch + ' (' + rev.version + ')';
 
           // Add link element
           var a = append(bd, 'a');
           a.href = rev.location;
-          a.classList.add('btn', 'tr-download-experimental');
-          a.textContent = tr('tr-download-experimental');
+          a.classList.add('btn', 'tr-download-snapshot');
+          a.textContent = tr('tr-download-snapshot');
        } else {
           // Add link element
           var a = append(bs, 'a');
