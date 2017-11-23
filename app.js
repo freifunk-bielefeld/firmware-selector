@@ -465,15 +465,16 @@ var firmwarewizard = function() {
 
       for (var i in revisions) {
         var rev = revisions[i];
+        var content = rev.branch + (rev.version ? (' (' + rev.version + ')') : '');
+
         if (rev.branch == 'snapshot') {
           // Add button element
           var button = append(bs, 'button');
           button.classList.add('btn', 'dl-snapshot');
-          button.onclick = function() {
-            toggleClass($('#branch-pane'), 'show-snapshot-warning');
-            scrollDown();
-          };
-          button.textContent = rev.branch + ' (' + rev.version + ')';
+          button.addEventListener('click', function() {
+            toggleClass('#branch-pane', 'show-snapshot-warning');
+          });
+          button.textContent = content;
 
           // Add link element
           var a = append(bd, 'a');
@@ -485,7 +486,7 @@ var firmwarewizard = function() {
           var a = append(bs, 'a');
           a.href = rev.location;
           a.classList.add('btn');
-          a.textContent = rev.branch + ' (' + rev.version + ')';
+          a.textContent = content;
         }
       }
     }
