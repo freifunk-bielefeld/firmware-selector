@@ -1,14 +1,19 @@
-OpenWrt/LEDE Firmware Wizard
+## OpenWrt/LEDE Firmware Wizard
 ---
 
 This Firmware Wizard lets a user select the correct firmware for his device. Directory listings are used to parse the list of available images.
 
 Some [Screenshots](docs/screenshots.md).
 
+Features:
+
+- scrapes HTML file listings of vanilla OpenWrt/LEDE images
+- English and German translations available
+- supports stable, beta and experimental image selection
+
 Similar projects:
 
 - [Gluon Firmware Wizard](https://github.com/freifunk-darmstadt/gluon-firmware-wizard): Original source of this project, but now with images.
-
 - [Freifunk Hennef Firmware Downloader](https://github.com/Freifunk-Hennef/ffhef-fw-dl): Similar to the one above, but has a different code base.
 
 ### Start
