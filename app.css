@@ -95,6 +95,8 @@ hr {
 .header {
   display: flex;
   cursor: default;
+  position: absolute;
+  width: 100%;
 }
 
 .header > * {
