@@ -15,6 +15,7 @@ Similar projects:
 
 - [Gluon Firmware Wizard](https://github.com/freifunk-darmstadt/gluon-firmware-wizard): Original source of this project, but now with images.
 - [Freifunk Hennef Firmware Downloader](https://github.com/Freifunk-Hennef/ffhef-fw-dl): Similar to the one above, but has a different code base.
+- [LibreMesh Chef](https://chef.libremesh.org/): Can select configurations.
 
 ### Start
 
