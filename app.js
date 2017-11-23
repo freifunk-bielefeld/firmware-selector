@@ -670,7 +670,7 @@ var firmwarewizard = function() {
         }
       }
 
-      //updateHTML(wizard);
+      updateHTML(wizard);
     }
 
     for (var indexPath in config.directories) {
