@@ -7,10 +7,9 @@ Some [Screenshots](docs/screenshots.md).
 
 Similar projects:
 
-- [Gluon Firmware Wizard](
-https://github.com/freifunk-darmstadt/gluon-firmware-wizard)
+- [Gluon Firmware Wizard](https://github.com/freifunk-darmstadt/gluon-firmware-wizard): Original source of this project, but now with images.
 
-- [Freifunk Hennef Firmware Downloader](https://github.com/Freifunk-Hennef/ffhef-fw-dl)
+- [Freifunk Hennef Firmware Downloader](https://github.com/Freifunk-Hennef/ffhef-fw-dl): Similar to the one above, but has a different code base.
 
 ### Start
 
