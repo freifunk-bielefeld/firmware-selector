@@ -12,10 +12,11 @@ https://github.com/freifunk-darmstadt/gluon-firmware-wizard)
 
 - [Freifunk Hennef Firmware Downloader](https://github.com/Freifunk-Hennef/ffhef-fw-dl)
 
+### Start
 
-### Configuration
-
-Copy `config_template.js` to `config.js` and change the settings if necessary.
+1. Download this repository
+2. Copy `config_template.js` to `config.js`
+3. Start a webserver in the project folder
 
 #### Apache Webserver
 Create a `.htaccess` file that enables directory listings:
@@ -49,9 +50,6 @@ If no hardware revision is given or is it is empty, the revision is extracted fr
 ```
 
 If two matches overlap, the longest match will be assigned the matching files. On the other hand, the same match can be used by multiple models without problems.
-
-### Configuration
-Image paths and available branches can be set in file `config_template.js` which has to be renamed to `config.js`
 
 ### TODO
 - support rootfs/kernel image combinations
