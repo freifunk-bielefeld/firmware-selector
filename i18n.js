@@ -2,15 +2,15 @@
 var translations = {
   'de-freifunk': {
     'tr-introduction': 'Erst mit der Freifunk-Firmware wird dein Router zu einem Teil des Freifunk-Netzes. Sie ist fertig vorkonfiguriert, um Kontakt mit benachbarten Freifunk-Knoten aufzunehmen, ein offenes und anonymes Freifunk-WLAN auszusenden und dich dabei vor der Störerhaftung zu schützen.',
-    'tr-introduction-additional': 'Bitte verwende das <em>Erstinstallationsimage</em>, wenn Du deinen Router gerade erst gekauft hast und sich darauf noch keine Freifunk-/OpenWRT-Firmware befindet. Ist bereits eine Freifunk- oder OpenWRT-Firmware installiert, verwende bitte die mit <em>Upgrade</em> bezeichnete Version.',
+    'tr-introduction-additional': 'Bitte verwende das <em>Erstinstallationsimage</em>, wenn Du deinen Router gerade erst gekauft hast und sich darauf noch keine Freifunk-/LEDE-/OpenWRT-Firmware befindet. Ist bereits eine Freifunk- oder LEDE-/OpenWRT-Firmware installiert, verwende bitte die mit <em>Upgrade</em> bezeichnete Version.',
     'tr-different-versions': 'Diese Freifunk-Firmware bieten wir in verschiedenen Versionen an:',
   },
   'de': {
     'tr-list-files': 'Liste aller Dateien',
-    'tr-loading': 'Loading...',
+    'tr-loading': 'Bitte warten...',
     'tr-show-table': 'Tabelle anzeigen',
     'tr-select-firmware': 'Wähle deine Firmware',
-    'tr-introduction': 'Die Firmware installierd ein Linux-basiertes Betriebsystem auf den Router. Darauf can verschiedene Software installiert werden.',
+    'tr-introduction': 'Die Firmware installiert ein Linux-basiertes Betriebsystem auf den Router. Darauf kann verschiedene Software installiert werden.',
     'tr-introduction-additional': 'Bitte verwende das <em>Erstinstallationsimage</em>, wenn Du deinen Router gerade erst gekauft hast und sich darauf noch keine LEDE-/OpenWRT-Firmware befindet. Ist bereits eine LEDE- oder OpenWRT-Firmware installiert, verwende bitte die mit <em>Upgrade</em> bezeichnete Version.',
     'tr-different-versions': 'Diese Firmware bieten wir in verschiedenen Versionen an:',
     'tr-experimental-warning': 'Vorsicht! Unsere experimentelle Firmware wurde <b>nicht</b> getestet und kann dein Gerät jederzeit und unangekündigt in einen Zustand versetzen, in dem du nur mit einem Lötkolben und dem Öffnen des Gehäuses weiter kommst. Verwende diese Version nur, wenn Du Dir darüber im Klaren bist!',
