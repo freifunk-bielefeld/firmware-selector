@@ -40,11 +40,12 @@ function ObjectValues(obj) {
 
 function isEmptyObject(obj) {
     for (var name in obj) {
-        return false;
+      return false;
     }
     return true;
 }
 
+// Translate a single text id
 function tr(id) {
   var mapping = translations[config.language];
   if (id in mapping) {
@@ -139,7 +140,7 @@ var firmwarewizard = function() {
       return search ? JSON.parse(
         '{"' + search.replace(/&/g, '","').replace(/=/g,'":"') + '"}',
         function(key, value) {
-          return (key=== '') ? value:decodeURIComponent(value);
+          return (key === '') ? value : decodeURIComponent(value);
         }):{};
     }
     var parsedURL = parseURLasJSON();
@@ -407,8 +408,8 @@ var firmwarewizard = function() {
       var types = getImageTypes();
       var typeNames = {
         'factory': tr('tr-factory'),
-        'sysupgrade': tr('sysupgrade'),
-        'rootfs': tr('tr-roofs'),
+        'sysupgrade': tr('tr-sysupgrade'),
+        'rootfs': tr('tr-rootfs'),
         'kernel': tr('tr-kernel')
       };
 
@@ -616,7 +617,7 @@ var firmwarewizard = function() {
 
   loadDirectories();
 
-  // Set link to firmware source directory
+  // Set link to first firmware source directory
   for(var path in config.directories) {
     $('#firmware-source-dir').href = path.replace(/\/[^\/]*$/, '');
     break;
