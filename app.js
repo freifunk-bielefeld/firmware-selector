@@ -468,8 +468,11 @@ var firmwarewizard = function() {
         if (rev.branch == 'snapshot') {
           // Add button element
           var button = append(bs, 'button');
-          button.class = "btn dl-snapshot";
-          button.addEventListener('click', function() { toggleClass('#branch-pane', 'show-snapshot-warning'); });
+          button.classList.add('btn', 'dl-snapshot');
+          button.addEventListener('click', function() {
+            toggleClass($('#branch-pane'), 'show-snapshot-warning');
+            scrollDown();
+          });
           button.textContent = rev.branch + ' (' + rev.version + ')';
 
           // Add link element
