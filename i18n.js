@@ -3,7 +3,7 @@ var translations = {
   'de-freifunk': {
     'tr-introduction': 'Erst mit der Freifunk-Firmware wird dein Router zu einem Teil des Freifunk-Netzes. Sie ist fertig vorkonfiguriert, um Kontakt mit benachbarten Freifunk-Knoten aufzunehmen, ein offenes und anonymes Freifunk-WLAN auszusenden und dich dabei vor der Störerhaftung zu schützen.',
     'tr-introduction-additional': 'Bitte verwende das <em>Erstinstallationsimage</em>, wenn Du deinen Router gerade erst gekauft hast und sich darauf noch keine Freifunk-/LEDE-/OpenWRT-Firmware befindet. Ist bereits eine Freifunk- oder LEDE-/OpenWRT-Firmware installiert, verwende bitte die mit <em>Upgrade</em> bezeichnete Version.',
-    'tr-different-versions': 'Diese Freifunk-Firmware bieten wir in verschiedenen Versionen an:',
+    'tr-different-versions': 'Diese Freifunk-Firmware bieten wir in diesen Versionen an:',
   },
   'de': {
     'tr-list-files': 'Liste aller Dateien',
@@ -44,7 +44,7 @@ var translations = {
     'tr-select-firmware': 'Select your image',
     'tr-introduction': 'The firmware puts a Linux based operating system on your device. It allows you to install additional software.',
     'tr-introduction-additional': 'If you have just bought the device, please choose the <em>first installation</em> image. If you have already installed LEDE/OpenWRT, use the <em>upgrade</em> images.',
-    'tr-different-versions': 'This firmware is available in different versions:',
+    'tr-different-versions': 'This firmware is available in the following versions:',
     'tr-snapshot-warning': 'Attention! The following images were <b>not</b> tested und might cause your device to put it in state that might need soldering. Please use this version only if you know what you do!',
     'tr-back-to-selection': 'Back to selection',
     'tr-list-files': 'List all files',
