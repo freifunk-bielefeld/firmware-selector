@@ -395,7 +395,7 @@ var firmwarewizard = function() {
         createOption(-1, tr('tr-select-revision'), wizard.revision)
       );
 
-      if (wizard.vendor  == -1 || wizard.model == -1 || isEmptyObject(images)) {
+      if (wizard.vendor == -1 || wizard.model == -1 || isEmptyObject(images)) {
         return;
       }
 
@@ -436,6 +436,8 @@ var firmwarewizard = function() {
         input.checked = (type == wizard.imageType) ? 'checked ' : '';
         input.name = 'firmwareType';
         input.addEventListener('click', (function(type) {
+          // Button toggle
+          type = (wizard.imageType == type ? -1 : type);
           return function() { firmwarewizard.setImageType(type); };
         })(type));
 
@@ -463,16 +465,20 @@ var firmwarewizard = function() {
       clearChildren(bs);
       clearChildren(bd);
 
+      $('#snapshot-warning').style.display = 'none';
+
       for (var i in revisions) {
         var rev = revisions[i];
         var content = rev.branch + (rev.version ? (' (' + rev.version + ')') : '');
 
-        if (rev.branch == 'snapshot') {
+        var b = rev.branch.toLowerCase();
+        if (b == 'snapshot' || b == 'nightly' || b == 'experimental') {
           // Add button element
           var button = append(bs, 'button');
           button.classList.add('btn', 'dl-snapshot');
           button.addEventListener('click', function() {
-            toggleClass('#branch-pane', 'show-snapshot-warning');
+            var e = $('#snapshot-warning');
+            e.style.display = (e.style.display == 'none') ? 'block' : 'none';
           });
           button.textContent = content;
 

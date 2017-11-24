@@ -182,11 +182,3 @@ hr {
   border-color: #cc8100;
   box-shadow: 0 0 5px #cc8100 inset;
 }
-
-#wizard #branch-pane .warning-snapshot {
-  display: none;
-}
-
-#wizard #branch-pane.show-snapshot-warning .warning-snapshot {
-  display: block;
-}
