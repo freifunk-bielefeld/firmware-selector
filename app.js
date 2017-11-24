@@ -527,11 +527,12 @@ var firmwarewizard = function() {
       var branches = Object.values(config.directories)
         .filter(function(value, index, self) { return self.indexOf(value) === index; });
 
-      $('#currentVersions').innerHTML = branches.reduce(function(ret, branch, i) {
-        ret += ((i === 0) ? '' : ' // ') + branch;
-        ret += (branch in app.currentVersions) ?  (': '  + app.currentVersions[branch]) : '';
-        return ret;
-      }, '');
+      var versions = branches.map(function(branch) {
+        var version = app.currentVersions[branch];
+        return branch + (version ? (': ' + version) : '');
+      }).join(' // ');
+
+      $('#currentVersions').textContent = versions;
     }
     updateCurrentVersions();
 
