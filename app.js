@@ -37,13 +37,26 @@ function show_inline(s) {
   $(s).style.display = 'inline-block';
 }
 
-function show_block(s) {
+function show(s) {
   $(s).style.display = 'block';
 }
 
 function hide(s) {
   $(s).style.display = 'none';
 }
+
+function isStable(branch) {
+  return 'stable release tested'.indexOf(branch.toLowerCase()) !== -1;
+}
+
+function isBeta(branch) {
+  return 'beta unstable'.indexOf(branch.toLowerCase()) !== -1;
+}
+
+function isSnapshot(branch) {
+  return 'alpha snapshot nightly experimental'.indexOf(branch.toLowerCase()) !== -1;
+}
+
 
 function isEmptyObject(obj) {
   for (var name in obj) {
@@ -339,10 +352,10 @@ var firmwarewizard = function() {
   // Update all elements of the page according to the wizard object
   function updateHTML(wizard) {
     if (wizard.showFirmwareTable) {
-      show_block('#firmwareTable');
+      show('#firmwareTable');
       hide('#wizard');
     } else {
-      show_block('#wizard');
+      show('#wizard');
       hide('#firmwareTable');
     }
 
@@ -465,14 +478,32 @@ var firmwarewizard = function() {
       clearChildren(bs);
       clearChildren(bd);
 
-      $('#snapshot-warning').style.display = 'none';
+      hide('#snapshot-warning');
+      hide('#releases');
+      hide('#stable');
+      hide('#beta');
+      hide('#snapshot');
 
       for (var i in revisions) {
         var rev = revisions[i];
         var content = rev.branch + (rev.version ? (' (' + rev.version + ')') : '');
 
-        var b = rev.branch.toLowerCase();
-        if (b == 'snapshot' || b == 'nightly' || b == 'experimental') {
+        // Show release notes
+        if (isStable(rev.branch)) {
+          $('#stable-label').textContent = rev.branch;
+          show('#stable');
+          show('#releases');
+        } else if (isBeta(rev.branch)) {
+          $('#beta-label').textContent = rev.branch;
+          show('#beta');
+          show('#releases');
+        } else if (isSnapshot(rev.branch)) {
+          $('#snapshot-label').textContent = rev.branch;
+          show('#snapshot');
+          show('#releases');
+        }
+
+        if (isSnapshot(rev.branch)) {
           // Add button element
           var button = append(bs, 'button');
           button.classList.add('btn', 'dl-snapshot');

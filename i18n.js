@@ -34,7 +34,7 @@ var translations = {
     'tr-sysupgrade': 'Upgrade',
     'tr-rootfs': 'Root-Image',
     'tr-kernel': 'Kernel-Image',
-    'tr-download-snapshot': 'Download für Experimentierfreudige',
+    'tr-download-snapshot': 'Download',
     'tr-all': 'alle'
   },
   'en': {
@@ -65,7 +65,7 @@ var translations = {
     'tr-sysupgrade': 'Upgrade',
     'tr-rootfs': 'Root-Image',
     'tr-kernel': 'Kernel-Image',
-    'tr-download-snapshot': 'Download for testers',
+    'tr-download-snapshot': 'Download',
     'tr-all': 'all'
   }
 }

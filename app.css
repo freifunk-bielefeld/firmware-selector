@@ -177,12 +177,11 @@ hr {
   color: black;
 }
 
-#wizard .radiogroup input[type="radio"]:checked + label,
-
 #wizard #snapshot-warning {
   display: none;
 }
 
+#wizard .radiogroup input[type="radio"]:checked + label,
 #wizard #snapshot-warning button.dl-snapshot {
   border-color: #cc8100;
   box-shadow: 0 0 5px #cc8100 inset;
