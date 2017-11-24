@@ -14,7 +14,6 @@ var config = {
     // Or from directory listings
     //'https://downloads.lede-project.org/releases/17.01.4/targets/ar71xx/generic/': 'stable'
     // Or use a JSON API
-    //'http://downloads.lede-project.org/releases/17.01.4/targets/ar71xx/generic/': 'stable',
-    //'https://downloads.lede-project.org/snapshots/targets/?json': 'snapshot',
+    //'https://downloads.lede-project.org/snapshots/targets/?json': 'snapshot'
   }
 };
