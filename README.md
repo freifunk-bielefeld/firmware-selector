@@ -3,7 +3,7 @@
 
 This Firmware Wizard lets a user select the correct firmware for his device. Directory listings are used to parse the list of available images.
 
-Some [Screenshots](docs/screenshots.md).
+[Screenshots](docs/screenshots.md) and a [public example](http://mwarning.de/firmware-wizard/).
 
 Features:
 
