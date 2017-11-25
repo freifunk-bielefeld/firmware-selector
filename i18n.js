@@ -13,7 +13,6 @@ var translations = {
     'tr-introduction': 'Die Firmware installiert ein Linux-basiertes Betriebsystem auf den Router. Darauf kann verschiedene Software installiert werden.',
     'tr-introduction-additional': 'Bitte verwende das <em>Erstinstallationsimage</em>, wenn Du deinen Router gerade erst gekauft hast und sich darauf noch keine LEDE-/OpenWRT-Firmware befindet. Ist bereits eine LEDE- oder OpenWRT-Firmware installiert, verwende bitte die mit <em>Upgrade</em> bezeichnete Version.',
     'tr-different-versions': 'Diese Firmware bieten wir in verschiedenen Versionen an:',
-    'tr-snapshot-warning': 'Vorsicht! Diese Firmware wurde <b>nicht</b> getestet und kann dein Gerät jederzeit und unangekündigt in einen Zustand versetzen, in dem du nur mit einem Lötkolben und dem Öffnen des Gehäuses weiter kommst. Verwende diese Version nur, wenn Du Dir darüber im Klaren bist!',
     'tr-back-to-selection': 'Zurück zum Auswahlmenü',
     'tr-list-files': 'Liste aller Dateien',
     'tr-firmware': 'Firmware',
@@ -33,7 +32,6 @@ var translations = {
     'tr-sysupgrade': 'Upgrade',
     'tr-rootfs': 'Root-Image',
     'tr-kernel': 'Kernel-Image',
-    'tr-download-snapshot': 'Download',
     'tr-all': 'alle'
   },
   'en': {
@@ -44,7 +42,6 @@ var translations = {
     'tr-introduction': 'The firmware puts a Linux based operating system on your device. It allows you to install additional software.',
     'tr-introduction-additional': 'If you have just bought the device, please choose the <em>first installation</em> image. If you have already installed LEDE/OpenWRT, use the <em>upgrade</em> images.',
     'tr-different-versions': 'This firmware is available in the following versions:',
-    'tr-snapshot-warning': 'Attention! The following image was <b>not</b> tested und might cause your device to put it in state that might need soldering. Please use this version only if you know what you do!',
     'tr-back-to-selection': 'Back to selection',
     'tr-list-files': 'List all files',
     'tr-firmware': 'Firmware',
@@ -63,7 +60,6 @@ var translations = {
     'tr-sysupgrade': 'Upgrade',
     'tr-rootfs': 'Root-Image',
     'tr-kernel': 'Kernel-Image',
-    'tr-download-snapshot': 'Download',
     'tr-all': 'all'
   },
   'pl': {
@@ -74,7 +70,6 @@ var translations = {
     'tr-introduction': 'Firmware zawieraja system operacyjny bazujący na Linuksie. Pozwala na instalację dodatkowego oprogramowania.',
     'tr-introduction-additional': 'Jeżeli dopiero kupiłeś urządzenie, wybierz obraz dla <em>pierwszej instalacji</em>. Jeżeli masz już zainstalowane LEDE lub OpenWrt, użyj obrazów dla <em>aktualizacji</em>.',
     'tr-different-versions': 'Firmware dostępne jest w następujących wersjach:',
-    'tr-snapshot-warning': 'UWAGA! Poniższe firmware <b>nie zostało</b> dobrze przetestowane i może wprowadzić urządzenie w stan wymagający jego naprawy. Użyj tych obrazów tylko jeżeli wiesz co robisz!',
     'tr-back-to-selection': 'Powrót do wyboru',
     'tr-list-files': 'Lista wszystkich plików',
     'tr-firmware': 'Firmware',
@@ -93,7 +88,6 @@ var translations = {
     'tr-sysupgrade': 'Aktualizacja',
     'tr-rootfs': 'Root-Image',
     'tr-kernel': 'Kernel-Image',
-    'tr-download-snapshot': 'Pobieranie',
     'tr-all': 'wszystkie'
   }
 }

@@ -479,12 +479,8 @@ var firmwarewizard = function() {
         .filter(function(e) { return e.revision == wizard.revision && e.type == wizard.imageType; });
 
       var bs = $('#branchselect');
-      var bd = $('#branch-snapshot-dl');
-
       clearChildren(bs);
-      clearChildren(bd);
 
-      hide('#snapshot-warning');
       hide('#releases');
       hide('#stable');
       hide('#beta');
@@ -509,28 +505,11 @@ var firmwarewizard = function() {
           show('#releases');
         }
 
-        if (isSnapshot(rev.branch)) {
-          // Add button element
-          var button = append(bs, 'button');
-          button.classList.add('btn', 'dl-snapshot');
-          button.addEventListener('click', function() {
-            var e = $('#snapshot-warning');
-            e.style.display = (e.style.display == 'none') ? 'block' : 'none';
-          });
-          button.textContent = content;
-
-          // Add link element
-          var a = append(bd, 'a');
-          a.href = rev.location;
-          a.classList.add('btn', 'tr-download-snapshot');
-          a.textContent = tr('tr-download-snapshot');
-        } else {
-          // Add link element
-          var a = append(bs, 'a');
-          a.href = rev.location;
-          a.classList.add('btn');
-          a.textContent = content;
-        }
+        // Add link element
+        var a = append(bs, 'a');
+        a.href = rev.location;
+        a.classList.add('btn');
+        a.textContent = content;
       }
     }
     showBranches();
