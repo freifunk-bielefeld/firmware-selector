@@ -1,7 +1,7 @@
 ## OpenWrt/LEDE Firmware Wizard
 ---
 
-This Firmware Wizard lets a user select the correct firmware for his device. Directory listings are used to parse the list of available images.
+The Firmware Wizard is a web interface to let end users select the correct [LEDE](https://lede-project.org/)/[OpenWrt](https://openwrt.org/) firmware for their wireless router.
 
 [Screenshots](docs/screenshots.md) and a [public example](http://mwarning.de/firmware-wizard/).
 
