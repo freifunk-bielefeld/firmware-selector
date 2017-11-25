@@ -8,7 +8,7 @@ The Firmware Wizard is a web interface to let end users select the correct [LEDE
 Features:
 
 - can scrape HTML file listings or read a JSON API (array of image path strings)
-- English and German translations available
+- English, German and Polish translations are available
 - supports stable, beta and experimental image selection
 
 Similar projects:
@@ -55,3 +55,9 @@ If no hardware revision is given or is it is empty, the revision is extracted fr
 ```
 
 If two matches overlap, the longest match will be assigned the matching files. On the other hand, the same match can be used by multiple models without problems.
+
+### TODO
+
+* add image search box
+* remove warning field for snapshots
+* fix duplicate buttons for images of different sizes and file systems
