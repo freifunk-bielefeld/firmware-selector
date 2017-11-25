@@ -65,6 +65,36 @@ var translations = {
     'tr-kernel': 'Kernel-Image',
     'tr-download-snapshot': 'Download',
     'tr-all': 'all'
+  },
+  'pl': {
+    'tr-list-files': 'Lista wszystkich plików',
+    'tr-loading': 'Ładowanie...',
+    'tr-show-table': 'Pokaż tabelę',
+    'tr-select-firmware': 'Wybierz obraz',
+    'tr-introduction': 'Firmware zawieraja system operacyjny bazujący na Linuksie. Pozwala na instalację dodatkowego oprogramowania.',
+    'tr-introduction-additional': 'Jeżeli dopiero kupiłeś urządzenie, wybierz obraz dla <em>pierwszej instalacji</em>. Jeżeli masz już zainstalowane LEDE lub OpenWrt, użyj obrazów dla <em>aktualizacji</em>.',
+    'tr-different-versions': 'Firmware dostępne jest w następujących wersjach:',
+    'tr-snapshot-warning': 'UWAGA! Poniższe firmware <b>nie zostało</b> dobrze przetestowane i może wprowadzić urządzenie w stan wymagający jego naprawy. Użyj tych obrazów tylko jeżeli wiesz co robisz!',
+    'tr-back-to-selection': 'Powrót do wyboru',
+    'tr-list-files': 'Lista wszystkich plików',
+    'tr-firmware': 'Firmware',
+    'tr-stable-desciption': 'Wersja stabilna.',
+    'tr-beta-desciption': 'Wersja testowa.',
+    'tr-snapshot-desciption': 'Wersja rozwojowa.',
+    'tr-available-versions': 'Dla wybranego modelu routera dostępne są następujące obrazy:',
+    'tr-manufacturer': 'Producent',
+    'tr-model': 'Model',
+    'tr-first-installation': 'Pierwsza instalacja',
+    'tr-upgrade': 'Aktualizacja',
+    'tr-select-manufacturer': '-- Wybierz producenta --',
+    'tr-select-model': '-- Wybierz model --',
+    'tr-select-revision': '-- Wybierz wersję --',
+    'tr-factory': 'Pierwsza instalacja',
+    'tr-sysupgrade': 'Aktualizacja',
+    'tr-rootfs': 'Root-Image',
+    'tr-kernel': 'Kernel-Image',
+    'tr-download-snapshot': 'Pobieranie',
+    'tr-all': 'wszystkie'
   }
 }
 
