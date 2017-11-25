@@ -57,7 +57,6 @@ function isSnapshot(branch) {
   return 'alpha snapshot nightly experimental'.indexOf(branch.toLowerCase()) !== -1;
 }
 
-
 function isEmptyObject(obj) {
   for (var name in obj) {
     return false;
@@ -233,8 +232,8 @@ var firmwarewizard = function() {
     }
   }
 
-  // Exclude file names containing a string
-  function ignoreFileName(name) {
+  // Exclude file names containing specific strings
+  function ignoredFileName(name) {
     for (var i in IGNORED_ELEMENTS) {
       if (name.indexOf(IGNORED_ELEMENTS[i]) != -1) {
         return true;
@@ -256,7 +255,7 @@ var firmwarewizard = function() {
     return revisions;
   }
 
-  function findType(name) {
+  function findImageType(name) {
     var m = /-(sysupgrade|factory|rootfs|kernel)[-.]/.exec(name);
     return m ? m[1] : 'factory';
   }
@@ -283,6 +282,11 @@ var firmwarewizard = function() {
     return m ? m[1] : '';
   }
 
+  function findFileSystem(name) {
+    var m = /-(ext2|ext3|ext3|squashfs|fat32)[-.]/.exec(name);
+    return m ? m[1] : '';
+  }
+
   function addArray(obj, key, value) {
     if (key in obj) {
       obj[key].push(value);
@@ -297,11 +301,12 @@ var firmwarewizard = function() {
     }
 
     var location = path + href;
-    var type = findType(href);
+    var type = findImageType(href);
     var version = findVersion(href);
     var region = findRegion(href);
     var revision = device.revision;
     var size = findSize(href);
+    var fs = findFileSystem(href);
 
     if (revision.length === 0) {
       revision = findRevision(href.replace(match, ''));
@@ -324,7 +329,8 @@ var firmwarewizard = function() {
       'type': type,
       'version': version,
       'location': location,
-      'size': size
+      'size': size,
+      'fs': fs
     });
   }
 
@@ -670,7 +676,7 @@ var firmwarewizard = function() {
         m = reLink.exec(data);
         if (m) {
           var href = m[1];
-          if (ignoreFileName(href)) {
+          if (ignoredFileName(href)) {
             continue;
           }
           var match = reMatch.exec(href);
@@ -696,7 +702,7 @@ var firmwarewizard = function() {
       for (var i in obj) {
         var href = obj[i];
 
-        if (ignoreFileName(href)) {
+        if (ignoredFileName(href)) {
           continue;
         }
 
