@@ -433,7 +433,6 @@ var firmwarewizard = function() {
         return;
       }
 
-      var types = getImageTypes();
       var typeNames = {
         'factory': 'tr-factory',
         'sysupgrade': 'tr-sysupgrade',
@@ -444,6 +443,7 @@ var firmwarewizard = function() {
       var p = $('#typeselect');
       clearChildren(p);
 
+      var types = getImageTypes();
       for (var i in types) {
         var type = types[i];
         if (type === '') continue;
