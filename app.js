@@ -569,7 +569,11 @@ var firmwarewizard = function() {
       };
 
       var addToRevHTML = function(rev) {
-        var html = '[<a href="' + rev.location + '" title="' + rev.version + '">' + rev.revision + '</a>] ';
+        var title = [rev.branch, rev.size, rev.fs, rev.version, rev.revision].filter(
+          function(s){ return (s !== '');
+        }).join(' | ');
+
+        var html = '[<a href="' + rev.location + '" title="' + title + '">' + rev.revision + '</a>] ';
         if (rev.type == 'sysupgrade') {
           upgradeHTML[rev.branch] += html;
           show = true;
