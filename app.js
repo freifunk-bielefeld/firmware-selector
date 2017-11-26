@@ -109,9 +109,9 @@ var firmwarewizard = function() {
       for (var model in models) {
         var match = models[model];
         if (typeof match == 'string') {
-          addArray(vendormodels_reverse, match, {'vendor': vendor, 'model': model, 'revision': ''});
+          addToArray(vendormodels_reverse, match, {'vendor': vendor, 'model': model, 'revision': ''});
         } else for (var m in match) {
-          addArray(vendormodels_reverse, m, {'vendor': vendor, 'model': model, 'revision': match[m]});
+          addToArray(vendormodels_reverse, m, {'vendor': vendor, 'model': model, 'revision': match[m]});
         }
       }
     }
@@ -287,7 +287,7 @@ var firmwarewizard = function() {
     return m ? m[1] : '';
   }
 
-  function addArray(obj, key, value) {
+  function addToArray(obj, key, value) {
     if (key in obj) {
       obj[key].push(value);
     } else {
