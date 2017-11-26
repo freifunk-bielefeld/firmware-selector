@@ -7,9 +7,9 @@ The Firmware Wizard is a web interface to let end users select the correct [LEDE
 
 Features:
 
-- can scrape HTML file listings or read a JSON API (array of image path strings)
+- scrapes HTML file listings or reads data from JSON API (array of relative image paths)
 - English, German and Polish translations are available
-- supports stable, beta and experimental image selection
+- supports stable/release/tested, beta/unstable and alpha/snapshot/nightly/experimental branches
 
 Similar projects:
 
@@ -19,7 +19,7 @@ Similar projects:
 
 ### Start
 
-1. Download this repository
+1. Download the source code
 2. Copy `config_template.js` to `config.js`
 3. Start a webserver in the project folder
 
@@ -54,7 +54,7 @@ If no hardware revision is given or is it is empty, the revision is extracted fr
 }
 ```
 
-If two matches overlap, the longest match will be assigned the matching files. On the other hand, the same match can be used by multiple models without problems.
+If two matches overlap, the longest match will be assigned the matching files. If the revision string is empty, it will be taken from the file name.
 
 ### TODO
 
