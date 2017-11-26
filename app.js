@@ -323,14 +323,14 @@ var firmwarewizard = function() {
       images[device.vendor] = {};
     }
 
-    addArray(images[device.vendor], device.model, {
-      'revision': revision,
-      'branch': branch,
-      'type': type,
-      'version': version,
-      'location': location,
-      'size': size,
-      'fs': fs
+    addToArray(images[device.vendor], device.model, {
+      revision: revision,
+      branch: branch,
+      type: type,
+      version: version,
+      location: location,
+      size: size,
+      fs: fs
     });
   }
 
@@ -434,10 +434,10 @@ var firmwarewizard = function() {
       }
 
       var typeNames = {
-        'factory': 'tr-factory',
-        'sysupgrade': 'tr-sysupgrade',
-        'rootfs': 'tr-rootfs',
-        'kernel': 'tr-kernel'
+        factory: 'tr-factory',
+        sysupgrade: 'tr-sysupgrade',
+        rootfs: 'tr-rootfs',
+        kernel: 'tr-kernel'
       };
 
       var p = $('#typeselect');
