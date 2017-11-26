@@ -563,12 +563,12 @@ var firmwarewizard = function() {
       var tb = $('#firmwareTableBody');
       clearChildren(tb);
 
-      var initializeRevHTML = function(rev) {
+      function initializeRevHTML(rev) {
         upgradeHTML[rev.branch] = '';
         factoryHTML[rev.branch] = '';
       };
 
-      var addToRevHTML = function(rev) {
+      function addToRevHTML(rev) {
         var title = [rev.branch, rev.size, rev.fs, rev.version, rev.revision].filter(
           function(s){ return (s !== '');
         }).join(' | ');
