@@ -477,7 +477,7 @@ var firmwarewizard = function() {
 
       var revisions = images[wizard.vendor][wizard.model]
         .filter(function(e) { return (e.revision == wizard.revision) && (e.type == wizard.imageType); })
-        .sort(function(a, b) { return (a.branch != b.branch) ? ((a.branch > a.branch) ? 1 : -1) : 0;});
+        .sort(function(a, b) { return (a.branch > b.branch); });
 
       var bs = $('#branchselect');
       clearChildren(bs);
