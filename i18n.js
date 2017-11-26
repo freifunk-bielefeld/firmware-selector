@@ -67,7 +67,7 @@ var translations = {
     'tr-loading': 'Ładowanie...',
     'tr-show-table': 'Pokaż tabelę',
     'tr-select-firmware': 'Wybierz obraz',
-    'tr-introduction': 'Firmware zawieraja system operacyjny bazujący na Linuksie. Pozwala na instalację dodatkowego oprogramowania.',
+    'tr-introduction': 'Firmware zawiera system operacyjny bazujący na Linuksie. Pozwala na instalację dodatkowego oprogramowania.',
     'tr-introduction-additional': 'Jeżeli dopiero kupiłeś urządzenie, wybierz obraz dla <em>pierwszej instalacji</em>. Jeżeli masz już zainstalowane LEDE lub OpenWrt, użyj obrazów dla <em>aktualizacji</em>.',
     'tr-different-versions': 'Firmware dostępne jest w następujących wersjach:',
     'tr-back-to-selection': 'Powrót do wyboru',
