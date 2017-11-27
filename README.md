@@ -9,6 +9,7 @@ Features:
 
 - scrapes HTML file listings or reads data from JSON API (array of relative image paths)
 - English, German and Polish translations are available
+- over 200 firmware file to model mappings
 - supports stable/release/tested, beta/unstable and alpha/snapshot/nightly/experimental branches
 
 Similar projects:
