@@ -14,12 +14,14 @@ var vendormodels = {
   "Allnet": {
     "ALL0256N": "all0256n",
     "ALL0305": "all0305",
-    "ALL0315N": "all0315n"
+    "ALL0315N": "all0315n",
+    "ALL5002": "all5002"
   },
 
   "Asus": {
-    "RP-N53": "rp-n53",
+    "RP-N53": {"rp-n53": "", "rp_n53": ""},
     "RT-G32": {"rt-g32-b1": "b1"},
+    "RT-N10+": "rt-n10-plus",
     "RT-N13U": "rt-n13u",
     "RT-N14U": "rt-n14u",
     "WL-330N": "wl-330n3g",
@@ -28,12 +30,17 @@ var vendormodels = {
 
   "Buffalo": {
     "WHR-1166D": "whr-1166d",
+    "WLAE-AG300N": "wlae-ag300n",
     "WZR-450HP2": "wzr-450hp2",
     "WZR-600DHP": {"wzr-600dhp": "v2"},
     "WZR-HP-AG300H": "wzr-hp-ag300h",
     "WZR-HP-G300H": "wzr-hp-g300h",
     "WZR-HP-G300NH": {"wzr-hp-g300nh": "v1", "wzr-hp-g300nh2": "v2"},
     "WZR-HP-G450H": "wzr-hp-g450h",
+  },
+
+  "Cloud Engines": {
+    "Pogoplug": {"pogo_e02": "E02"}
   },
 
   "Compex": {
@@ -46,19 +53,28 @@ var vendormodels = {
    },
 
   "D-Link": {
+    "DAP-1350": {"dap-1350": "a1"},
+    "DHP-1565": {"dhp-1565-a1": "a1"},
     "DIR-300": "dir-300",
     "DIR-320": "dir-320",
     "DIR-505": "dir-505",
     "DIR-600": "dir-600",
     "DIR-601": "dir-601",
     "DIR-610": "dir-610",
-    "DIR-615": {"dir-615-c1": "c1/c2", "dir-615-rev-c1": "c1/c2", "dir-615-d": "d1-d4", "dir-615-e1": "e1/e2", "dir-615-e4": "e3-e5", "dir-615-h1": "h1/h2"},
+    "DIR-615": {"dir-615-c1": "c1/c2", "dir-615-rev-c1": "c1/c2", "dir-615-d": "d1-d4", "dir-615-e1": "e1/e2", "dir-615-e4": "e3-e5", "dir-615-h1": "h1/h2", "dir-615-i3": "i3"},
     "DIR-620": "dir-620",
     "DIR-810L": "dir-810l",
     "DIR-825": "dir-825",
     "DIR-835": "dir-835",
     "DIR-860L": "dir-860l",
+    "DGL-5500": {"dgl-5500-a1": "a1"},
     "DWR-512": "dwr-512-b"
+  },
+
+  "EnGenius": {
+    "EPG5000": "epg5000",
+    "ESR900": "esr900",
+    "ESR1750": "esr1750"
   },
 
   "GL Innovations": {
@@ -67,6 +83,7 @@ var vendormodels = {
     "AR300M": "gl-ar300m",
     "iNet 6408a": "gl-inet-6408A",
     "iNet 6416a": "gl-inet-6416A",
+    "GL-M9331-Core (Domino)": "gl-domino",
     "GL-MT300a": "gl-mt300a",
     "GL-MT300n": "gl-mt300n",
     "GL-MT750": "gl-mt750",
@@ -78,6 +95,17 @@ var vendormodels = {
     "MPR-A2": "mpr-a2"
   },
 
+  "Iomega": {
+    "iConnect": "iconnect"
+  },
+
+  "jjPlus": {
+    "JA76PF0": "ja76pf",
+    "JA76PF2": "ja76pf2",
+    "JWAP003": "jwap003",
+    "JWAP230": "jwap230"
+  },
+
   "LeMaker": {
     "Banana Pi": "banana-pi",
     "Banana Pro": "banana-pro",
@@ -87,6 +115,9 @@ var vendormodels = {
   "Linksys": {
     "E1700": "e1700",
     "E2100L": "e2100l",
+    "E4200": {"linksys-viper": "v2"},
+    "EA3500": {"linksys-audi": "v1"},
+    "EA4500": "linksys-viper",
     "EA8500": "EA8500",
     "RE6500": "re6500",
     "WRT160NL": "wrt160nl",
@@ -119,6 +150,8 @@ var vendormodels = {
     "R6100": "r6100",
     "R7500": {"R7500": "v1", "R7500v2": "v2"},
     "R7800": "R7800",
+    "WNR612" : {"wnr612v2": "v2"},
+    "WNR2000": "wnr2000",
     "WNR2200": "wnr2200",
     "WNDR3700": {"wndr3700": "v1", "wndr3700v2": "v2", "wndr3700v3": "v3", "wndr3700v4": "v4", "wndr3700v5": "v5"},
     "WNDR3800": "wndr3800",
@@ -155,10 +188,20 @@ var vendormodels = {
     "APU/APU2/APU3": "x86-64-apu"
   },
 
+  "RaidSonic": {
+    "ICY BOX IB-NAS62x0": {"ib62x0": "Rev B"}
+  },
+
   "Raspberry Pi Foundation": {
     "PI": "raspberry-pi",
     "PI 2": "raspberry-pi-2",
     "PI 3": "raspberry-pi-3"
+  },
+
+  "Seagate": {
+    "DockStar": "dockstar",
+    "GoFlex Home": "goflexhome",
+    "GoFlex Net": "goflexnet"
   },
 
   "Fujitsu/Siemens": {
@@ -182,6 +225,7 @@ var vendormodels = {
     "Archer C50": "ArcherC50",
     "Archer C2600": {"C2600": "v1"},
     "Archer MR200": "ArcherMR200",
+    "Archer VR2600v": "VR2600v",
     "CPE 210": {"cpe210": "", "cpe210-220": ""},
     "CPE 220": {"cpe220": "", "cpe210-220": ""},
     "CPE 510": {"cpe510": "", "cpe510-520": ""},
@@ -212,19 +256,21 @@ var vendormodels = {
     "TL-WDR4300": "tl-wdr4300",
     "TL-WDR4310": "tl-wdr4310",
     "TL-WDR4900": "tl-wdr4900",
+    "TL-WDR6500": "tl-wdr6500",
     "TL-WDR7500": "tl-wdr7500",
     "TL-WPA8630": "tl-wpa8630",
     "TL-WR1043N/ND": {"tl-wr1043n": "", "tl-wr1043nd": ""},
     "TL-WR2543N/ND": {"tl-wr2543": "", "tl-wr2543n": ""},
     "TL-WR703N": "tl-wr703n",
     "TL-WR710N": "tl-wr710n",
-    "TL-WR810N": "tl-wr810n",
+    "TL-WR810N": {"tl-wr810n": "v1"},
     "TL-WR740N/ND": "tl-wr740n",
     "TL-WR741N/ND": "tl-wr741nd",
     "TL-WR743N/ND": "tl-wr743n",
     "TL-WR841N/ND": {"tl-wr841n":  "", "tl-wr841nd": "", "tl-wr841": ""},
     "TL-WR842N/ND": "tl-wr842n",
     "TL-WR843N/ND": "tl-wr843nd",
+    "TL-WR847N": "tl-wr847n",
     "TL-WR940N/ND": {"tl-wr940n": "", "tl-wr941n-v4": "v1", "tl-wr941nd-v5": "v2", "tl-wr941nd-v6": "v3"},
     "TL-WR941N/ND": {"wr941n-nd": "", "tl-wr941nd": "", "tl-wr941nd-v4": "v4", "tl-wr941nd-v5": "v5", "tl-wr941nd-v6": "v6"}
   },
@@ -258,8 +304,8 @@ var vendormodels = {
   },
 
   "Western Digital": {
-    "My Net N600": "my-net-n600",
-    "My Net N750": "my-net-n750"
+    "My Net N600": {"my-net-n600": "", "mynet-n600": ""},
+    "My Net N750": {"my-net-n750": "", "mynet-n750": ""}
   },
 
   "x86": {
@@ -289,4 +335,12 @@ var vendormodels = {
     "WG3526": "zbt-wg3526",
     "WR8305RT": "zbt-wr8305rt"
   },
+
+  "ZyXEL": {
+    "NBG-419N": {"nbg-419n": "v1", "nbg-419n2": "v2"},
+    "NBG6616": "NBG6616",
+    "NBG6716": "nbg6716",
+    "NBG6817": "NBG6817"
+  },
+
 };
