@@ -245,8 +245,8 @@ var firmwarewizard = function() {
   // Simplified version string comparison
   function sortByRevision(revisions) {
     function cmpVersion(a, b) {
-      var ap = a.split('.');
-      var bp = b.split('.');
+      var ap = a.split(/[.,-]/);
+      var bp = b.split(/[.,-]/);
       for (var i = 0; i < Math.min(ap.length, bp.length); i += 1) {
         var ae = ap[i];
         var be = bp[i];
