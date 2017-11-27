@@ -324,13 +324,13 @@ var firmwarewizard = function() {
     }
 
     addToArray(images[device.vendor], device.model, {
-      revision: revision,
-      branch: branch,
-      type: type,
-      version: version,
-      location: location,
-      size: size,
-      fs: fs
+      revision: revision, // a1, v2.1, ..
+      branch: branch, // stable, unstable, ..
+      type: type, // sysupgrade, factory, ..
+      version: version, // 17.01.4, ..
+      location: location, // http://...
+      size: size, // 8M, 16M, ...
+      fs: fs // squashfs, ext3, ..
     });
   }
 
