@@ -18,7 +18,7 @@ var config = {
     // Or use a JSON API
     //'https://downloads.lede-project.org/releases/17.01.4/targets/?json': 'stable',
     //'https://downloads.lede-project.org/snapshots/targets/?json': 'snapshot'
-  }
+  },
   // Indicate what branches are stable, unstable or testing.
   stable: ['stable', 'release', 'tested'],
   unstable: ['beta', 'unstable'],
