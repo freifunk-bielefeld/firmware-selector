@@ -242,16 +242,26 @@ var firmwarewizard = function() {
     return false;
   }
 
-  // Simplified version string sort
+  // Simplified version string comparison
   function sortByRevision(revisions) {
+    function cmpVersion(a, b) {
+      var ap = a.split('.');
+      var bp = b.split('.');
+      for (var i = 0; i < Math.min(ap.length, bp.length); i += 1) {
+        var ae = ap[i];
+        var be = bp[i];
+        if (ae.length > be.length) return 1;
+        if (ae.length < be.length) return -1;
+        if (ae > be) return 1;
+        if (ae < be) return -1;
+      }
+      return ap.length > bp.length;
+    }
+
+    // Sort by revision first, by size second
     revisions.sort(function(a, b) {
-        a = a.revision; b = b.revision;
-        if (a.length > b.length) return 1;
-        if (a.length < b.length) return -1;
-        if (a > b) return 1;
-        if (a < b) return -1;
-        return 0;
-      });
+      return cmpVersion(a.revision + a.size, b.revision + b.size)
+    });
     return revisions;
   }
 
