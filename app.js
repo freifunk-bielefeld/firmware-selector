@@ -649,7 +649,7 @@ var firmwarewizard = function() {
     var reLink = new RegExp('href="([^"]*)"', 'g');
 
     // Match image files
-    var reMatch = new RegExp('(' + matches.join('|') + ')[.-]');
+    var reMatch = new RegExp('-(' + matches.join('|') + ')[.-]');
 
     var parseHTML = function(data, indexPath) {
       var basePath = indexPath.substring(0, indexPath.lastIndexOf('/') + 1);
