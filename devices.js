@@ -211,7 +211,7 @@ var vendormodels = {
     "R7800": "R7800",
     "WNCE2001": "wnce2001",
     "WNR612" : {"wnr612v2": "v2"},
-    "WNR1000": {"wnr1000v2": "v2"},
+    "WNR1000": {"wnr1000v2": "v2", "wnr1000v2-vc": "v2-vc"},
     "WNR2000": {"wnr2000": "v1", "wnr2000v3": "v3"},
     "WNR2200": "wnr2200",
     "WNDR3700": {"wndr3700": "v1", "wndr3700v2": "v2", "wndr3700v3": "v3", "wndr3700v4": "v4", "wndr3700v5": "v5"},
