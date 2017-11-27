@@ -566,7 +566,7 @@ var firmwarewizard = function() {
       function initializeRevHTML(rev) {
         upgradeHTML[rev.branch] = '';
         factoryHTML[rev.branch] = '';
-      };
+      }
 
       function addToRevHTML(rev) {
         var title = [rev.branch, rev.size, rev.fs, rev.version, rev.revision].filter(
@@ -582,7 +582,7 @@ var firmwarewizard = function() {
           factoryHTML[rev.branch] += html;
           show = true;
         }
-      };
+      }
 
       var lines = '';
       var vendors = Object.keys(images).sort();
