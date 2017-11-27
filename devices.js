@@ -1,11 +1,18 @@
 var vendormodels = {
   "8devices": {
+    "Carambola Board": "carambola",
     "Carambola Board 2": "carambola2"
+  },
+
+  "AirLive": {
+   "AIR3GII": "air3gii"
   },
 
   "Alfa": {
     "AP121": "ap121",
+    "AP121F": "ap121f",
     "AP121U": "ap121u",
+    "ASLl26555": "asl26555",
     "Hornet-UB": "hornet-ub",
     "Tube2H": "tube2h",
     "N2 / N5": "n2-n5"
@@ -15,7 +22,8 @@ var vendormodels = {
     "ALL0256N": "all0256n",
     "ALL0305": "all0305",
     "ALL0315N": "all0315n",
-    "ALL5002": "all5002"
+    "ALL5002": "all5002",
+    "ALL5003": "all5003"
   },
 
   "Asus": {
@@ -28,9 +36,21 @@ var vendormodels = {
     "WL-330N3G": "wl-330n"
   },
 
+  "Belkin": {
+    "F5D8235-4": "f5d8235",
+    "F9K1115": {"f9k1115v2": "v2"},
+    "WEMO Switch": "f7c027"
+  },
+
   "Buffalo": {
+    "WHR-600D": "whr-600d",
     "WHR-1166D": "whr-1166d",
+    "WHR-G300N": "whr-g300n",
+    "WHR-G301N": "whr-g301n",
+    "WHR-HP-GN": "whr-hp-gn",
+    "WMR-300": "wmr-300",
     "WLAE-AG300N": "wlae-ag300n",
+    "WSR-1166DHP": "wsr-1166",
     "WZR-450HP2": "wzr-450hp2",
     "WZR-600DHP": {"wzr-600dhp": "v2"},
     "WZR-HP-AG300H": "wzr-hp-ag300h",
@@ -54,6 +74,7 @@ var vendormodels = {
 
   "D-Link": {
     "DAP-1350": {"dap-1350": "a1"},
+    "DAP-2695": {"dap-2695-a1": "a1"},
     "DHP-1565": {"dhp-1565-a1": "a1"},
     "DIR-300": "dir-300",
     "DIR-320": "dir-320",
@@ -67,14 +88,29 @@ var vendormodels = {
     "DIR-825": "dir-825",
     "DIR-835": "dir-835",
     "DIR-860L": "dir-860l",
+    "DIR-869": {"dir-869-a1": "a1"},
     "DGL-5500": {"dgl-5500-a1": "a1"},
     "DWR-512": "dwr-512-b"
   },
 
+  "Dovado": {
+    "Tiny AC": "tiny-ac"
+  },
+
+  "Edimax": {
+    "3G-6200N": "3g-6200n",
+    "3G-6200NL": "3g-6200nl"
+  },
+
   "EnGenius": {
     "EPG5000": "epg5000",
+    "ESR-9753": "esr-9753",
     "ESR900": "esr900",
     "ESR1750": "esr1750"
+  },
+
+  "La Fonera": {
+    "FON2303A": "fonera20n"
   },
 
   "GL Innovations": {
@@ -84,10 +120,11 @@ var vendormodels = {
     "iNet 6408a": "gl-inet-6408A",
     "iNet 6416a": "gl-inet-6416A",
     "GL-M9331-Core (Domino)": "gl-domino",
+    "GL-MiFi": "gl-mifi",
     "GL-MT300a": "gl-mt300a",
     "GL-MT300n": "gl-mt300n",
     "GL-MT750": "gl-mt750",
-    "GL-MiFi": "gl-mifi"
+    "GL-USB150": "gl-usb150"
   },
 
   "Hame": {
@@ -95,8 +132,23 @@ var vendormodels = {
     "MPR-A2": "mpr-a2"
   },
 
+  "HooToo": {
+    "HT-TM02": "ht-tm02"
+  },
+
+  "Huawei": {
+    "D105": "d105",
+    "HG255d": "hg255d"
+  },
+
   "Iomega": {
     "iConnect": "iconnect"
+  },
+
+  "JGC": {
+    "JHR-N805R": "jhr-n805r",
+    "JHR-N825R": "jhr-n825r",
+    "JHR-N926R": "jhr-n926r"
   },
 
   "jjPlus": {
@@ -140,9 +192,16 @@ var vendormodels = {
   },
 
   "Mikrotik": {
-    "vmlinux": {"mikrotik-vmlinux-lzma" : "", "mikrotik-vmlinux.lzma" : ""},
-    "flash <= 64M": "nand-64m",
-    "flash > 64M": "nand-large"
+    "hEX (RB750Gr3)": "rb750gr3",
+    "Flash 16M": "nor-flash-16M",
+    "Flash 16M, AC": "nor-flash-16M-ac",
+    "NAND flash <= 64M": "nand-64m",
+    "NAND flash > 64M": "nand-large",
+    "vmlinux": {"mikrotik-vmlinux-lzma" : "", "mikrotik-vmlinux.lzma" : ""}
+  },
+
+  "Netcore": {
+    "NW718": "nw718"
   },
 
   "Netgear": {
@@ -150,8 +209,10 @@ var vendormodels = {
     "R6100": "r6100",
     "R7500": {"R7500": "v1", "R7500v2": "v2"},
     "R7800": "R7800",
+    "WNCE2001": "wnce2001",
     "WNR612" : {"wnr612v2": "v2"},
-    "WNR2000": "wnr2000",
+    "WNR1000": {"wnr1000v2": "v2", "wnr1000v2-vc": "v2-vc"},
+    "WNR2000": {"wnr2000": "v1", "wnr2000v3": "v3"},
     "WNR2200": "wnr2200",
     "WNDR3700": {"wndr3700": "v1", "wndr3700v2": "v2", "wndr3700v3": "v3", "wndr3700v4": "v4", "wndr3700v5": "v5"},
     "WNDR3800": "wndr3800",
@@ -188,6 +249,24 @@ var vendormodels = {
     "APU/APU2/APU3": "x86-64-apu"
   },
 
+  "Planex": {
+    "MZA-WDPR": "mzk-wdpr",
+    "MZK-750DHP": "mzk-750dhp",
+    "MZK-DP150N": "mzk-dp150n",
+    "MZK-EX300NP": "mzk-ex300np",
+    "MZK-EX750NP": "mzk-ex750np",
+    "MZK-W04NU": "mzk-w04nu",
+    "MZK-W300NH": "mzk-w300nh",
+    "MZK-W300NH2": "mzk-w300nh2"
+  },
+
+  "Poray": {
+    "M3": "m3",
+    "M4": "m4",
+    "X5": "x5",
+    "X8": "x8"
+  },
+
   "RaidSonic": {
     "ICY BOX IB-NAS62x0": {"ib62x0": "Rev B"}
   },
@@ -204,6 +283,11 @@ var vendormodels = {
     "GoFlex Net": "goflexnet"
   },
 
+  "Sitecom": {
+    "WL-341": {"wl-341v3": "v3"},
+    "WL-351": "wl-351"
+  },
+
   "Fujitsu/Siemens": {
     "Futro S550 I/II": "siemens-futro550"
   },
@@ -213,7 +297,9 @@ var vendormodels = {
   },
 
   "Tenda": {
-    "3G-150B": "3g150b"
+    "3G150B": "3g150b",
+    "3G300M": "3g300m",
+    "W306R": "w306r"
   },
 
   "TP-Link": {
@@ -260,19 +346,31 @@ var vendormodels = {
     "TL-WDR7500": "tl-wdr7500",
     "TL-WPA8630": "tl-wpa8630",
     "TL-WR1043N/ND": {"tl-wr1043n": "", "tl-wr1043nd": ""},
+    "TL-WR1041N": "tl-wr1041n",
     "TL-WR2543N/ND": {"tl-wr2543": "", "tl-wr2543n": ""},
     "TL-WR703N": "tl-wr703n",
     "TL-WR710N": "tl-wr710n",
-    "TL-WR810N": {"tl-wr810n": "v1"},
     "TL-WR740N/ND": "tl-wr740n",
     "TL-WR741N/ND": "tl-wr741nd",
-    "TL-WR743N/ND": "tl-wr743n",
+    "TL-WR743N/ND": {"tl-wr743n": "", "tl-wr743nd": ""},
+    "TL-WR802N": "tl-wr802n",
+    "TL-WR810N": {"tl-wr810n": "v1"},
     "TL-WR841N/ND": {"tl-wr841n":  "", "tl-wr841nd": "", "tl-wr841": ""},
     "TL-WR842N/ND": "tl-wr842n",
     "TL-WR843N/ND": "tl-wr843nd",
     "TL-WR847N": "tl-wr847n",
     "TL-WR940N/ND": {"tl-wr940n": "", "tl-wr941n-v4": "v1", "tl-wr941nd-v5": "v2", "tl-wr941nd-v6": "v3"},
     "TL-WR941N/ND": {"wr941n-nd": "", "tl-wr941nd": "", "tl-wr941nd-v4": "v4", "tl-wr941nd-v5": "v5", "tl-wr941nd-v6": "v6"}
+  },
+
+  "TRENDnet": {
+    "TEW-632BRP": "tew-632brp",
+    "TEW-652BRP": "tew-652brp",
+    "TEW-673GRU": "tew-673gru",
+    "TEW-712BR": "tew-712br",
+    "TEW-714TRU": "tew-714tru",
+    "TEW-732BR": "tew-732br",
+    "TEW-823DRU": "tew-823dru"
   },
 
   "Ubiquiti": {
@@ -300,7 +398,9 @@ var vendormodels = {
   },
 
   "Unbranded": {
-    "A5-V11": "a5-v11"
+    "A5-V11": "a5-v11",
+    "WR512-3GN": "wr512-3gn",
+    "XDXRN502J": "xdxrn502j"
   },
 
   "Western Digital": {
