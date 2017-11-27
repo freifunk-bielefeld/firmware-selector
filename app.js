@@ -278,7 +278,7 @@ var firmwarewizard = function() {
   }
 
   function findSize(name) {
-    var m = /-(4M|8M|16M|32M|64M)[.-]/.exec(name);
+    var m = /-(256M|128M|64M|32M|16M|8M|4M)[.-]/.exec(name);
     return m ? m[1] : '';
   }
 
