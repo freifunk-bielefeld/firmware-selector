@@ -570,10 +570,11 @@ var firmwarewizard = function() {
 
       function addToRevHTML(rev) {
         var title = [rev.branch, rev.size, rev.fs, rev.version, rev.revision].filter(
-          function(s){ return (s !== '');
-        }).join(' | ');
+          function(s) { return (s !== ''); }
+        ).join(' | ');
+        var label = rev.revision + (rev.size.length ? (', ' + rev.size) : '');
 
-        var html = '[<a href="' + rev.location + '" title="' + title + '">' + rev.revision + '</a>] ';
+        var html = '[<a href="' + rev.location + '" title="' + title + '">' + label + '</a>] ';
         if (rev.type == 'sysupgrade') {
           upgradeHTML[rev.branch] += html;
           show = true;
