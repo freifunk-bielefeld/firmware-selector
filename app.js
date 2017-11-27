@@ -46,15 +46,15 @@ function hide(s) {
 }
 
 function isStable(branch) {
-  return 'stable release tested'.indexOf(branch.toLowerCase()) !== -1;
+  return config.stable.indexOf(branch) !== -1;
 }
 
-function isBeta(branch) {
-  return 'beta unstable'.indexOf(branch.toLowerCase()) !== -1;
+function isUnstable(branch) {
+  return config.unstable.indexOf(branch) !== -1;
 }
 
-function isSnapshot(branch) {
-  return 'alpha snapshot nightly experimental'.indexOf(branch.toLowerCase()) !== -1;
+function isTesting(branch) {
+  return config.testing.indexOf(branch) !== -1;
 }
 
 function isEmptyObject(obj) {
@@ -484,8 +484,8 @@ var firmwarewizard = function() {
 
       hide('#releases');
       hide('#stable');
-      hide('#beta');
-      hide('#snapshot');
+      hide('#unstable');
+      hide('#testing');
 
       for (var i in revisions) {
         var rev = revisions[i];
@@ -496,13 +496,13 @@ var firmwarewizard = function() {
           $('#stable-label').textContent = rev.branch;
           show('#stable');
           show('#releases');
-        } else if (isBeta(rev.branch)) {
-          $('#beta-label').textContent = rev.branch;
-          show('#beta');
+        } else if (isUnstable(rev.branch)) {
+          $('#unstable-label').textContent = rev.branch;
+          show('#unstable');
           show('#releases');
-        } else if (isSnapshot(rev.branch)) {
-          $('#snapshot-label').textContent = rev.branch;
-          show('#snapshot');
+        } else if (isTesting(rev.branch)) {
+          $('#testing-label').textContent = rev.branch;
+          show('#testing');
           show('#releases');
         }
 
