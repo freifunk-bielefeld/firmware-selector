@@ -148,7 +148,7 @@ var vendormodels = {
   },
 
   "Gateworks": {
-    "Ventana family": "ventana"
+    "Ventana": "ventana"
   },
 
   "La Fonera": {
