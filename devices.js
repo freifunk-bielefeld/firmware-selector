@@ -33,7 +33,33 @@ var vendormodels = {
     "RT-N13U": "rt-n13u",
     "RT-N14U": "rt-n14u",
     "WL-330N": "wl-330n3g",
-    "WL-330N3G": "wl-330n"
+    "WL-330N3G": "wl-330n",
+    "RT-AC53U": "asus-rt-ac53u",
+    "RT-AC56U": "asus-rt-ac56u",
+    "RT-AC66U": "asus-rt-ac66u",
+    "RT-AC68U": "asus-rt-ac68u",
+    "RT-AC87U": "asus-rt-ac87u",
+    "RT-N10": "asus-rt-n10",
+    "RT-N10P": "asus-rt-n10p",
+    "RT-N10U": "asus-rt-n10u",
+    "RT-N10U B": "asus-rt-n10u-b",
+    "RT-N12": "asus-rt-n12",
+    "RT-N12HP": "asus-rt-n12hp",
+    "RT-N14UHP": "asus-rt-n14uhp",
+    "RT-N15U": "asus-rt-n15u",
+    "RT-N16": "asus-rt-n16",
+    "RT-N18U": "asus-rt-n18u",
+    "RT-N53": "asus-rt-n53",
+    "RT-N66U": "asus-rt-n66u",
+    "RT-N66W": "asus-rt-n66w",
+    "WL-300g": "asus-wl-300g",
+    "WL-320gP": "asus-wl-320gp",
+    "WL-330gE": "asus-wl-330ge",
+    "WL-500gP": "asus-wl-500gp",
+    "WL-500W": "asus-wl-500w",
+    "WL-520gU": "asus-wl-520gu",
+    "WL-550gE": "asus-wl-550ge",
+    "WL-HDD25": "asus-wl-hdd25"
   },
 
   "Belkin": {
@@ -57,6 +83,15 @@ var vendormodels = {
     "WZR-HP-G300H": "wzr-hp-g300h",
     "WZR-HP-G300NH": {"wzr-hp-g300nh": "v1", "wzr-hp-g300nh2": "v2"},
     "WZR-HP-G450H": "wzr-hp-g450h",
+    "WXR-1900DHP": "buffalo-wxr-1900dhp",
+    "WZR-1750DHP": "buffalo-wzr-1750dhp",
+    "WZR-600DHP2": "buffalo-wzr-600dhp2",
+    "WZR-900DHP": "buffalo-wzr-900dhp"
+  },
+
+  "Cisco": {
+    "Meraki MR24": "mr24",
+    "Meraki MX60": "mx60",
   },
 
   "Cloud Engines": {
@@ -89,7 +124,9 @@ var vendormodels = {
     "DIR-835": "dir-835",
     "DIR-860L": "dir-860l",
     "DIR-869": {"dir-869-a1": "a1"},
+    "DIR-885L": "dlink-dir-885l",
     "DGL-5500": {"dgl-5500-a1": "a1"},
+    "DWL-3150": "dlink-dwl-3150",
     "DWR-512": "dwr-512-b"
   },
 
@@ -99,7 +136,8 @@ var vendormodels = {
 
   "Edimax": {
     "3G-6200N": "3g-6200n",
-    "3G-6200NL": "3g-6200nl"
+    "3G-6200NL": "3g-6200nl",
+    "PS-1208MFg": "edimax-ps1208-mfg"
   },
 
   "EnGenius": {
@@ -107,6 +145,10 @@ var vendormodels = {
     "ESR-9753": "esr-9753",
     "ESR900": "esr900",
     "ESR1750": "esr1750"
+  },
+
+  "Gateworks": {
+    "Ventana family": "ventana"
   },
 
   "La Fonera": {
@@ -138,7 +180,8 @@ var vendormodels = {
 
   "Huawei": {
     "D105": "d105",
-    "HG255d": "hg255d"
+    "HG255d": "hg255d",
+    "E970": "huawei-e970"
   },
 
   "Iomega": {
@@ -176,7 +219,42 @@ var vendormodels = {
     "WRT1200AC": "wrt1200ac",
     "WRT1900AC": {"wrt1900ac": "v1", "wrt1900acv2": "v2"},
     "WRT1900ACS": "wrt1900acs",
-    "WRT3200ACM": "wrt3200acm"
+    "WRT3200ACM": "wrt3200acm",
+    "E1000": {"linksys-e1000-v1-v2-v2.1": "v1", "linksys-e1000-v1-v2-v2.1": "v2", "linksys-e1000-v1-v2-v2.1": "v2.1"},
+    "E1200": "linksys-e1200",
+    "E1500": "linksys-e1500",
+    "E1550": "linksys-e1550",
+    "E2000": "linksys-e2000",
+    "E2500": "linksys-e2500",
+    "E2500": "linksys-e2500",
+    "E2500": "linksys-e2500",
+    "E3000": "linksys-e3000",
+    "E3200": "linksys-e3200",
+    "E4200": "linksys-e4200",
+    "E4200v2 (Viper)": "linksys-viper",
+    "EA4500 (Viper)": "linksys-viper",
+    "E900": "linksys-e900",
+    "EA3500 (Audi)": "linksys-audi",
+    "EA6300": "linksys-ea6300",
+    "EA9200": {"linksys-ea9200": "v1"},
+    "EA9500": "linksys-ea9500",
+    "WRT150N": "linksys-wrt150n",
+    "WRT160N": "linksys-wrt160n",
+    "WRT300N": "linksys-wrt300n",
+    "WRT310N": "linksys-wrt310n",
+    "WRT320N": "linksys-wrt320n",
+    "WRT350N": "linksys-wrt350n",
+    "WRT54G3G-EM": "linksys-wrt54g3g-em",
+    "WRT54G3G": "linksys-wrt54g3g",
+    "WRT54G3GV2-VF": "linksys-wrt54g3gv2-vf",
+    "WRT54G": "linksys-wrt54g",
+    "WRT54GS": "linksys-wrt54gs",
+    "WRT610N": "linksys-wrt610n",
+    "WRTSL54GS": "linksys-wrtsl54gs"
+  },
+
+  "Marvell": {
+    "Armada 388 RD": "armada-388-rd"
   },
 
   "Mediatek": {
@@ -200,6 +278,12 @@ var vendormodels = {
     "vmlinux": {"mikrotik-vmlinux-lzma" : "", "mikrotik-vmlinux.lzma" : ""}
   },
 
+  "Motorola": {
+    "WA840G": "motorola-wa840g",
+    "WE800G": "motorola-we800g",
+    "WR850G": "motorola-wr850g",
+  },
+
   "Netcore": {
     "NW718": "nw718"
   },
@@ -219,6 +303,32 @@ var vendormodels = {
     "WNDR3800CH": "wndr3800ch",
     "WNDR4300": "wndr4300",
     "WNDRMAC": {"wndrmac": "v1", "wndrmacv2": "v2"},
+    "Centria N900 WNDR4700": "WNDR4700",
+    "Centria N900 WNDR4720": "WNDR4700",
+    "R6250": "netgear-r6250",
+    "R6300": "netgear-r6300",
+    "R7000": "netgear-r7000",
+    "R7900": "netgear-r7900",
+    "R8000": "netgear-r8000",
+    "R8500": "netgear-r8500",
+    "WGR614": {"netgear-wgr614-v10_north-america" : 'v10-us', "netgear-wgr614-v10_other-regions": "v10"},
+    "WGR614": "netgear-wgr614",
+    "WGT634U": "netgear-wgt634u",
+    "WN2500RP": "netgear-wn2500rp",
+    "WN3000RP": "netgear-wn3000rp",
+    "WNDR3300": "netgear-wndr3300",
+    "WNDR3400": "netgear-wndr3400",
+    "WNDR3400 vcna": "netgear-wndr3400-vcna",
+    "WNDR3700": "netgear-wndr3700",
+    "WNDR4000": "netgear-wndr4000",
+    "WNR1000": "netgear-wnr1000",
+    "WNR2000": { "netgear-wnr2000v2": "v2" },
+    "WNR3500L": {"netgear-wnr3500l-v1-north-america": "v1-us", "netgear-wnr3500l-v1-other-regions": "v1"},
+    "WNR3500L": "netgear-wnr3500l",
+    "WNR3500U": "netgear-wnr3500u",
+    "WNR3500": "netgear-wnr3500",
+    "WNR3500 v2 vc": "netgear-wnr3500-v2-vc",
+    "WNR834B": "netgear-wnr834b"
   },
 
   "Nexx": {
@@ -272,9 +382,9 @@ var vendormodels = {
   },
 
   "Raspberry Pi Foundation": {
-    "PI": "raspberry-pi",
-    "PI 2": "raspberry-pi-2",
-    "PI 3": "raspberry-pi-3"
+    "PI 2 B": "rpi-2",
+    "Pi 3 B/CM": "rpi-3",
+    "Pi B/B+/CM/Zero/ZeroW": "rpi"
   },
 
   "Seagate": {
@@ -288,6 +398,10 @@ var vendormodels = {
     "WL-351": "wl-351"
   },
 
+  "SmartRG": {
+    "SR400ac": "smartrg-sr400ac"
+  },
+
   "Fujitsu/Siemens": {
     "Futro S550 I/II": "siemens-futro550"
   },
@@ -299,12 +413,14 @@ var vendormodels = {
   "Tenda": {
     "3G150B": "3g150b",
     "3G300M": "3g300m",
-    "W306R": "w306r"
+    "W306R": "w306r",
+    "AC9": "tenda-ac9"
   },
 
   "TP-Link": {
     "Archer C5": {"archer-c5": "v1"},
     "Archer C7": "archer-c7",
+    "Archer C9": "archer-c9",
     "Archer C20": "ArcherC20",
     "Archer C20i": "ArcherC20i",
     "Archer C25": "archer-c25",
@@ -394,13 +510,24 @@ var vendormodels = {
     "UniFi AP AC Pro": "unifi-ac-pro",
     "UniFi AP AC Lite": {"unifi-ac-lite": "", "unifiac-lite": ""},
     "UniFi AP Outdoor": {"unifi-outdoor": "", "unifiap-outdoor": ""},
-    "UniFi AP Outdoor+": {"unifi-outdoor-plus": "", "ubiquiti-unifiap-outdoor+": "", "ubiquiti-unifiap-outdoor%2B": ""}
+    "UniFi AP Outdoor+": {"unifi-outdoor-plus": "", "ubiquiti-unifiap-outdoor+": "", "ubiquiti-unifiap-outdoor%2B": ""},
+    "XS2-8": "ubnt2-pico2",
+    "XS2": "ubnt2",
+    "XS5": "ubnt5"
   },
 
   "Unbranded": {
     "A5-V11": "a5-v11",
     "WR512-3GN": "wr512-3gn",
     "XDXRN502J": "xdxrn502j"
+  },
+
+  "USRobotics": {
+    "USR5461": "usrobotics-usr5461"
+  },
+
+  "Wandboard": {
+    "Dual": "wandboard"
   },
 
   "Western Digital": {
@@ -441,6 +568,5 @@ var vendormodels = {
     "NBG6616": "NBG6616",
     "NBG6716": "nbg6716",
     "NBG6817": "NBG6817"
-  },
-
+  }
 };
