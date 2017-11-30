@@ -88,6 +88,19 @@ function changeTranslation() {
   }
 }
 
+function loadFile(url, callback) {
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+      callback(xmlhttp.responseText, url);
+    } else {
+      callback('', url);
+    }
+  };
+  xmlhttp.open('GET', url, true);
+  xmlhttp.send();
+}
+
 var firmwarewizard = function() {
   var app = {};
 
@@ -633,20 +646,10 @@ var firmwarewizard = function() {
     updateFirmwareTable();
   }
 
-  function loadSite(url, callback) {
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
-      if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-        callback(xmlhttp.responseText, url);
-      }
-    };
-    xmlhttp.open('GET', url, true);
-    xmlhttp.send();
-  }
-
   // Parse the contents of the given directories
   function loadDirectories() {
     var vendormodels_reverse = buildVendorModelsReverse();
+    var toLoad = Object.values(config.directories).length;
 
     // Sort by length to get the longest match
     var matches = Object.keys(vendormodels_reverse).sort(function(a, b) {
@@ -686,7 +689,10 @@ var firmwarewizard = function() {
         }
       } while (m);
 
-      updateHTML(wizard);
+      toLoad -= 1;
+      if (toLoad <= 0) {
+        updateHTML(wizard);
+      }
     }
 
     var parseJSON = function(data, indexPath) {
@@ -712,16 +718,19 @@ var firmwarewizard = function() {
         }
       }
 
-      updateHTML(wizard);
+      toLoad -= 1;
+      if (toLoad <= 0) {
+        updateHTML(wizard);
+      }
     }
 
     for (var indexPath in config.directories) {
       if (indexPath.endsWith('json')) {
         // Retrieve JSON file data
-        loadSite(indexPath, parseJSON);
+        loadFile(indexPath, parseJSON);
       } else {
         // Retrieve HTML file listing
-        loadSite(indexPath, parseHTML);
+        loadFile(indexPath, parseHTML);
       }
     }
   }
