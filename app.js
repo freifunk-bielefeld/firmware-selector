@@ -29,6 +29,14 @@ function clearChildren(parent) {
   }
 }
 
+function isNonEmptyString(s) {
+  return s.length !== 0;
+}
+
+function isNotUnique(value, index, self) {
+  return self.indexOf(value) === index;
+}
+
 function toggleClass(s, cssClass) {
   $(s).classList.toggle(cssClass);
 }
@@ -93,8 +101,6 @@ function loadFile(url, callback) {
   xmlhttp.onreadystatechange = function() {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
       callback(xmlhttp.responseText, url);
-    } else {
-      callback('', url);
     }
   };
   xmlhttp.open('GET', url, true);
@@ -368,13 +374,13 @@ var firmwarewizard = function() {
   function getRevisions() {
     return sortByRevision(images[wizard.vendor][wizard.model])
       .map(function(e) { return e.revision; })
-      .filter(function(value, index, self) { return self.indexOf(value) === index; });
+      .filter(isNotUnique);
   }
 
   function getImageTypes() {
     return images[wizard.vendor][wizard.model]
       .map(function(e) { return e.type; })
-      .filter(function(value, index, self) { return self.indexOf(value) === index; })
+      .filter(isNotUnique)
       .sort();
   }
 
@@ -469,7 +475,9 @@ var firmwarewizard = function() {
       var types = getImageTypes();
       for (var i in types) {
         var type = types[i];
-        if (type === '') continue;
+        if (type === '') {
+          continue;
+        }
 
         // Add input field
         var input = append(p, 'input');
@@ -512,7 +520,11 @@ var firmwarewizard = function() {
 
       for (var i in revisions) {
         var rev = revisions[i];
-        var content = rev.branch + (rev.version ? (' (' + rev.version + ')') : '');
+        var content = rev.branch;
+        var info = [rev.version, rev.size].filter(isNonEmptyString).join(', ');
+        if (info.length) {
+          content += ' (' + info + ')';
+        }
 
         // Show release notes
         if (isStable(rev.branch)) {
@@ -568,10 +580,9 @@ var firmwarewizard = function() {
     }
     updatePanes();
 
-    // Show branches
+    // Show branches in the upper right corner
     function updateCurrentVersions() {
-      var branches = Object.values(config.directories)
-        .filter(function(value, index, self) { return self.indexOf(value) === index; });
+      var branches = Object.values(config.sources).filter(isNotUnique);
 
       var versions = branches.map(function(branch) {
         var version = app.currentVersions[branch];
@@ -592,9 +603,7 @@ var firmwarewizard = function() {
       }
 
       function addToRevHTML(rev) {
-        var title = [rev.branch, rev.size, rev.fs, rev.version, rev.revision].filter(
-          function(s) { return (s !== ''); }
-        ).join(' | ');
+        var title = [rev.branch, rev.size, rev.fs, rev.version, rev.revision].filter(isNonEmptyString).join(' | ');
         var label = rev.revision + (rev.size.length ? (', ' + rev.size) : '');
 
         var html = '[<a href="' + rev.location + '" title="' + title + '">' + label + '</a>] ';
@@ -646,10 +655,11 @@ var firmwarewizard = function() {
     updateFirmwareTable();
   }
 
-  // Parse the contents of the given directories
+  // Parse the contents of the given sources
   function loadDirectories() {
     var vendormodels_reverse = buildVendorModelsReverse();
-    var toLoad = Object.values(config.directories).length;
+    var pathsToLoad = Object.values(config.sources).length;
+    var usedMatchers = {}; // For debugging
 
     // Sort by length to get the longest match
     var matches = Object.keys(vendormodels_reverse).sort(function(a, b) {
@@ -664,9 +674,30 @@ var firmwarewizard = function() {
     // Match image files
     var reMatch = new RegExp('-(' + matches.join('|') + ')[.-]');
 
+    function loadFinished() {
+      pathsToLoad -= 1;
+
+      // Check if all paths has been loaded
+      if (pathsToLoad > 0) {
+        return;
+      }
+
+      // Build HTML content
+      updateHTML(wizard);
+
+      // Debug output
+      if (config.listUnusedMatchers) {
+        for (var match in vendormodels_reverse) {
+          if( !(match in usedMatchers)) {
+            console.log('No file was matched by ' + match);
+          }
+        }
+      }
+    }
+
     var parseHTML = function(data, indexPath) {
       var basePath = indexPath.substring(0, indexPath.lastIndexOf('/') + 1);
-      var branch = config.directories[indexPath];
+      var branch = config.sources[indexPath];
       reLink.lastIndex = 0;
 
       var m;
@@ -679,25 +710,28 @@ var firmwarewizard = function() {
           }
           var match = reMatch.exec(href);
           if (match) {
-            var devices = vendormodels_reverse[match[1]];
+            var matcher = match[1];
+            var devices = vendormodels_reverse[matcher];
+
             for (var i in devices) {
-              parseFilePath(devices[i], match[1], basePath, href, branch);
+              parseFilePath(devices[i], matcher, basePath, href, branch);
             }
-          } else if (config.listMissingImages) {
-            console.log("No rule for firmware image:", href);
+
+            if (config.listUnusedMatchers) {
+              usedMatchers[matcher] = null;
+            }
+          } else if (config.listMissingMatchers) {
+            console.log("No match for file for:", href);
           }
         }
       } while (m);
 
-      toLoad -= 1;
-      if (toLoad <= 0) {
-        updateHTML(wizard);
-      }
+      loadFinished();
     }
 
     var parseJSON = function(data, indexPath) {
       var basePath = indexPath.substring(0, indexPath.lastIndexOf('/') + 1);
-      var branch = config.directories[indexPath];
+      var branch = config.sources[indexPath];
       var obj = JSON.parse(data);
 
       for (var i in obj) {
@@ -709,22 +743,25 @@ var firmwarewizard = function() {
 
         var match = reMatch.exec(href);
         if (match) {
-          var devices = vendormodels_reverse[match[1]];
+          var matcher = match[1];
+          var devices = vendormodels_reverse[matcher];
+
           for (var i in devices) {
-            parseFilePath(devices[i], match[1], basePath, href, branch);
+            parseFilePath(devices[i], matcher, basePath, href, branch);
           }
-        } else if (config.listMissingImages) {
+
+          if (config.listUnusedMatchers) {
+            usedMatchers[matcher] = null;
+          }
+        } else if (config.listMissingMatchers) {
           console.log("No rule for firmware image:", href);
         }
       }
 
-      toLoad -= 1;
-      if (toLoad <= 0) {
-        updateHTML(wizard);
-      }
+      loadFinished();
     }
 
-    for (var indexPath in config.directories) {
+    for (var indexPath in config.sources) {
       if (indexPath.endsWith('json')) {
         // Retrieve JSON file data
         loadFile(indexPath, parseJSON);
@@ -738,7 +775,7 @@ var firmwarewizard = function() {
   loadDirectories();
 
   // Set link to first firmware source directory
-  for(var path in config.directories) {
+  for(var path in config.sources) {
     $('#firmware-source-dir').href = path.replace(/\/[^\/]*$/, '');
     break;
   }
