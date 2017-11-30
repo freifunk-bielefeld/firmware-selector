@@ -60,5 +60,3 @@ If two matches overlap, the longest match will be assigned the matching files. I
 ### TODO
 
 * add image search box
-* fix duplicate buttons for images of different sizes and file systems
-* list device entries that do not match any image (for debugging)
