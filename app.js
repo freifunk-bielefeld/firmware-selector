@@ -774,7 +774,7 @@ var firmwarewizard = function() {
 
   loadDirectories();
 
-  // Set link to first firmware source directory
+  // Set link to first firmware source
   for(var path in config.sources) {
     $('#firmware-source-dir').href = path.replace(/\/[^\/]*$/, '');
     break;
