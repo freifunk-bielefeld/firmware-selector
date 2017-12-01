@@ -312,7 +312,7 @@ var firmwarewizard = function() {
   }
 
   function findFileSystem(name) {
-    var m = /-(ext2|ext3|ext4|squashfs|fat32)[-.]/.exec(name);
+    var m = /-(ext2|ext3|ext4|squashfs|initramfs|uImage|fat32)[-.]/.exec(name);
     return m ? m[1] : '';
   }
 
