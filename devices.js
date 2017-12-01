@@ -39,7 +39,10 @@ var vendormodels = {
     "RT-G32": "rt-g32",
     "RT-N10": "asus-rt-n10",
     "RT-N10+": "rt-n10-plus",
-    "RT-N10P": "asus-rt-n10p",
+    "RT-N10P": {
+      "asus-rt-n10p": "v1",
+      "asus-rt-n10p-v2": "v2"
+    },
     "RT-N10U": "asus-rt-n10u",
     "RT-N10U B": "asus-rt-n10u-b",
     "RT-N12": "asus-rt-n12",
@@ -139,7 +142,8 @@ var vendormodels = {
       "dir-615-e4": "e3-e5",
       "dir-615-h1": "h1/h2",
       "dir-615-i3": "i3",
-      "dir-615-rev-c1": "c1/c2"
+      "dir-615-rev-c1": "c1/c2",
+      "dir-615-c1": "c1/c2"
     },
     "DIR-620": "dir-620",
     "DIR-810L": "dir-810l",
@@ -147,9 +151,11 @@ var vendormodels = {
     "DIR-835": "dir-835",
     "DIR-860L": "dir-860l",
     "DIR-869": "dir-869",
-    "DIR-885L": "dlink-dir-885l",
-    "DWL-3150": "dlink-dwl-3150",
-    "DWR-512": "dwr-512-b"
+    "DIR-885L": "dir-885l",
+    "DWL-3150": "dwl-3150",
+    "DWR-512": {
+      "dwr-512-b": "b"
+    }
   },
 
   "Dovado": {
@@ -246,16 +252,9 @@ var vendormodels = {
     "E2500": "linksys-e2500",
     "E3000": "linksys-e3000",
     "E3200": "linksys-e3200",
-    "E4200": {
-      "linksys-viper": "v2"
-    },
-    "E4200v2 (Viper)": "linksys-viper",
+    "E4200": "linksys-e4200",
     "E900": "linksys-e900",
-    "EA3500": {
-      "linksys-audi": "v1"
-    },
     "EA3500 (Audi)": "linksys-audi",
-    "EA4500": "linksys-viper",
     "EA4500 (Viper)": "linksys-viper",
     "EA6300": "linksys-ea6300",
     "EA8500": "EA8500",
@@ -355,7 +354,7 @@ var vendormodels = {
     "WNDR3700": {
       "wndr3700": "v1",
       "wndr3700v2": "v2",
-      "wndr3700v3": "v3",
+      "wndr3700-v3": "v3",
       "wndr3700v4": "v4",
       "wndr3700v5": "v5"
     },
