@@ -341,7 +341,7 @@ var vendormodels = {
     "R8000": "netgear-r8000",
     "R8500": "netgear-r8500",
     "WGR614": {
-      "netgear-wgr614-v10_north-america": "v10-us",
+      "netgear-wgr614-v10_north-america": "v10-na",
       "netgear-wgr614-v10_other-regions": "v10"
     },
     "WGT634U": "netgear-wgt634u",
