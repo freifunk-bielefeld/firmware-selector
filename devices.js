@@ -36,9 +36,7 @@ var vendormodels = {
     "RT-AC66U": "asus-rt-ac66u",
     "RT-AC68U": "asus-rt-ac68u",
     "RT-AC87U": "asus-rt-ac87u",
-    "RT-G32": {
-      "rt-g32-b1": "b1"
-    },
+    "RT-G32": "rt-g32",
     "RT-N10": "asus-rt-n10",
     "RT-N10+": "rt-n10-plus",
     "RT-N10P": "asus-rt-n10p",
@@ -125,15 +123,9 @@ var vendormodels = {
     "DAP-1350": {
       "dap-1350": "a1"
     },
-    "DAP-2695": {
-      "dap-2695-a1": "a1"
-    },
-    "DGL-5500": {
-      "dgl-5500-a1": "a1"
-    },
-    "DHP-1565": {
-      "dhp-1565-a1": "a1"
-    },
+    "DAP-2695": "dap-2695",
+    "DGL-5500": "dgl-5500",
+    "DHP-1565": "dhp-1565",
     "DIR-300": "dir-300",
     "DIR-320": "dir-320",
     "DIR-505": "dir-505",
@@ -154,9 +146,7 @@ var vendormodels = {
     "DIR-825": "dir-825",
     "DIR-835": "dir-835",
     "DIR-860L": "dir-860l",
-    "DIR-869": {
-      "dir-869-a1": "a1"
-    },
+    "DIR-869": "dir-869-a1",
     "DIR-885L": "dlink-dir-885l",
     "DWL-3150": "dlink-dwl-3150",
     "DWR-512": "dwr-512-b"
@@ -188,10 +178,7 @@ var vendormodels = {
   },
 
   "GL Innovations": {
-    "AR150": {
-      "gl-ar150": "",
-      "gl_ar150": ""
-    },
+    "AR150": "gl-ar150",
     "AR300": "gl-ar300",
     "AR300M": "gl-ar300m",
     "GL-M9331-Core (Domino)": "gl-domino",
@@ -425,8 +412,8 @@ var vendormodels = {
       "mr900v2": "v2"
     },
     "OM2P": {
-      "om2pv2": "v2",
-      "openmesh-om2p": "v1"
+      "om2p": "v1",
+      "om2pv2": "v2"
     },
     "OM2P HS": {
       "om2p-hs": "v1",
@@ -554,7 +541,7 @@ var vendormodels = {
     "TL-WA7510N": "tl-wa7510n",
     "TL-WA801N/ND": {
       "tl-wa801n": "",
-      "wa801nd": ""
+      "tl-wa801nd": ""
     },
     "TL-WA830RE": "tl-wa830re",
     "TL-WA850RE": "tl-wa850re",
