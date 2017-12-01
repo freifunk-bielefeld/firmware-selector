@@ -146,7 +146,7 @@ var vendormodels = {
     "DIR-825": "dir-825",
     "DIR-835": "dir-835",
     "DIR-860L": "dir-860l",
-    "DIR-869": "dir-869-a1",
+    "DIR-869": "dir-869",
     "DIR-885L": "dlink-dir-885l",
     "DWL-3150": "dlink-dwl-3150",
     "DWR-512": "dwr-512-b"
