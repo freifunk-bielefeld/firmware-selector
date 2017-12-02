@@ -379,6 +379,7 @@ var firmwarewizard = function() {
 
   function getImageTypes() {
     return images[wizard.vendor][wizard.model]
+      .filter(function(e) { return e.revision === wizard.revision; })
       .map(function(e) { return e.type; })
       .filter(isNotUnique)
       .sort();
