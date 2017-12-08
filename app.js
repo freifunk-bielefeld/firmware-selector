@@ -298,7 +298,7 @@ var firmwarewizard = function() {
   function findRevision(name) {
     // Reversion identifier like a1, v2.1
     var m = /-([a-z][0-9]{1,2}(\.[0-9]{1,2})?)[.-]/.exec(name);
-    return m ? m[1] : tr('tr-all');
+    return m ? m[1] : 'v1';
   }
 
   function findRegion(name) {

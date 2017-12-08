@@ -31,8 +31,7 @@ var translations = {
     'tr-factory': 'Erstinstallation',
     'tr-sysupgrade': 'Upgrade',
     'tr-rootfs': 'Root-Image',
-    'tr-kernel': 'Kernel-Image',
-    'tr-all': 'alle'
+    'tr-kernel': 'Kernel-Image'
   },
   'en': {
     'tr-list-files': 'List all files',
@@ -59,8 +58,7 @@ var translations = {
     'tr-factory': 'First installation',
     'tr-sysupgrade': 'Upgrade',
     'tr-rootfs': 'Root-Image',
-    'tr-kernel': 'Kernel-Image',
-    'tr-all': 'all'
+    'tr-kernel': 'Kernel-Image'
   },
   'pl': {
     'tr-list-files': 'Lista wszystkich plików',
@@ -87,8 +85,7 @@ var translations = {
     'tr-factory': 'Pierwsza instalacja',
     'tr-sysupgrade': 'Aktualizacja',
     'tr-rootfs': 'Root-Image',
-    'tr-kernel': 'Kernel-Image',
-    'tr-all': 'wszystkie'
+    'tr-kernel': 'Kernel-Image'
   }
 }
 
