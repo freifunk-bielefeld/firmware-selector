@@ -1,3 +1,4 @@
+
 var vendormodels = {
   "8devices": {
     "Carambola Board": "carambola",
@@ -258,9 +259,7 @@ var vendormodels = {
     "EA4500 (Viper)": "linksys-viper",
     "EA6300": "linksys-ea6300",
     "EA8500": "EA8500",
-    "EA9200": {
-      "linksys-ea9200": "v1"
-    },
+    "EA9200": "linksys-ea9200",
     "EA9500": "linksys-ea9500",
     "RE6500": "re6500",
     "WRT1200AC": "wrt1200ac",
