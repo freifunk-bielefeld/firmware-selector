@@ -5,6 +5,10 @@ var vendormodels = {
     "Carambola Board 2": "carambola2"
   },
 
+  "Aigale": {
+    "Ai-BR100": "ai-br100"
+  },
+
   "AirLive": {
     "AIR3GII": "air3gii"
   },
@@ -79,13 +83,16 @@ var vendormodels = {
 
   "Buffalo": {
     "WHR-1166D": "whr-1166d",
+    "WHR-300HP2": "whr-300hp2",
     "WHR-600D": "whr-600d",
     "WHR-G300N": "whr-g300n",
     "WHR-G301N": "whr-g301n",
+    "WHR-HP-G300N": "whr-hp-g300n",
     "WHR-HP-GN": "whr-hp-gn",
     "WLAE-AG300N": "wlae-ag300n",
     "WMR-300": "wmr-300",
     "WSR-1166DHP": "wsr-1166",
+    "WSR-600DHP": "wsr-600",
     "WXR-1900DHP": "buffalo-wxr-1900dhp",
     "WZR-1750DHP": "buffalo-wzr-1750dhp",
     "WZR-450HP2": "wzr-450hp2",
@@ -114,6 +121,17 @@ var vendormodels = {
     }
   },
 
+  "Comfast": {
+    "CF-E316N": "cf-e316n",
+    "CF-E320N": {
+      "cf-e320n": "v2"
+    },
+    "CF-E380AC": "cf-e380ac",
+    "CF-E520N": "cf-e520n",
+    "CF-E530N": "cf-e530n",
+    "CF-WR800N": "cf-wr800n"
+  },
+
   "Compex": {
     "WP543": "wp543",
     "WPE72": "wpe72",
@@ -128,6 +146,7 @@ var vendormodels = {
       "dap-1350": "a1"
     },
     "DAP-2695": "dap-2695",
+    "DCH-M225": "dch-m225",
     "DGL-5500": "dgl-5500",
     "DHP-1565": "dhp-1565",
     "DIR-300": "dir-300",
@@ -142,6 +161,7 @@ var vendormodels = {
       "dir-615-e1": "e1/e2",
       "dir-615-e4": "e3-e5",
       "dir-615-h1": "h1/h2",
+      "dir-615-i1": "i1",
       "dir-615-i3": "i3",
       "dir-615-rev-c1": "c1/c2",
       "dir-615-c1": "c1/c2"
@@ -159,6 +179,16 @@ var vendormodels = {
     }
   },
 
+  "Devolo": {
+    "dLAN Hotspot": "dlan-hotspot",
+    "dLAN pro 1200 WiFi ac": "dlan-pro-1200-ac",
+    "dLAN pro 500 Wireless+": "dlan-pro-500-wp"
+  },
+
+  "Digineo": {
+   "AC1200 Pro": "ac1200pro"
+  },
+
   "Dovado": {
     "Tiny AC": "tiny-ac"
   },
@@ -169,11 +199,19 @@ var vendormodels = {
     "PS-1208MFg": "edimax-ps1208-mfg"
   },
 
+  "ELECOM": {
+    "WRH-300CR": "wrh-300cr"
+  },
+
   "EnGenius": {
     "EPG5000": "epg5000",
     "ESR-9753": "esr-9753",
     "ESR1750": "esr1750",
     "ESR900": "esr900"
+  },
+
+  "Firefly": {
+    "Firewrt": "firewrt"
   },
 
   "Fujitsu/Siemens": {
@@ -203,6 +241,12 @@ var vendormodels = {
     "MPR-A2": "mpr-a2"
   },
 
+  "HiWiFi/Gee": {
+    "HC5661": "hc5661",
+    "HC5761": "hc5761",
+    "HC5861": "hc5861"
+  },
+
   "HooToo": {
     "HT-TM02": "ht-tm02"
   },
@@ -223,11 +267,20 @@ var vendormodels = {
     "JHR-N926R": "jhr-n926r"
   },
 
+  "Jindong": {
+    "newifi D1": "newifi-d1"
+  },
+
   "jjPlus": {
     "JA76PF0": "ja76pf",
     "JA76PF2": "ja76pf2",
     "JWAP003": "jwap003",
     "JWAP230": "jwap230"
+  },
+
+  "Kingston": {
+    "Mobilelite Wireless MLW221": "mlw221",
+    "Mobilelite Wireless MLWG2": "mlwg2"
   },
 
   "La Fonera": {
@@ -238,6 +291,11 @@ var vendormodels = {
     "Banana Pi": "banana-pi",
     "Banana Pro": "banana-pro",
     "Lamobo": "lamobo"
+  },
+
+  "Lenovo": {
+    "y1": "y1",
+    "y1s": "y1s"
   },
 
   "Linksys": {
@@ -301,6 +359,10 @@ var vendormodels = {
     "MR66": "mr66"
   },
 
+  "Microduino": {
+    "MicroWrt Core": "microwrt"
+  },
+
   "Mikrotik": {
     "Flash 16M": "nor-flash-16M",
     "Flash 16M, AC": "nor-flash-16M-ac",
@@ -317,6 +379,10 @@ var vendormodels = {
     "WA840G": "motorola-wa840g",
     "WE800G": "motorola-we800g",
     "WR850G": "motorola-wr850g"
+  },
+
+  "MQMaker": {
+    "WiTi Board": "witi"
   },
 
   "Netcore": {
@@ -344,6 +410,7 @@ var vendormodels = {
       "netgear-wgr614-v10_other-regions": "v10"
     },
     "WGT634U": "netgear-wgt634u",
+    "WPN824N": "wpn824n",
     "WN2500RP": "netgear-wn2500rp",
     "WN3000RP": "netgear-wn3000rp",
     "WNCE2001": "wnce2001",
@@ -387,6 +454,10 @@ var vendormodels = {
     "WNR834B": "netgear-wnr834b"
   },
 
+  "Netis": {
+    "WF-2881": "wf-2881"
+  },
+
   "Nexx": {
     "WT1520": "wt1520",
     "WT3020": "wt3020"
@@ -428,12 +499,28 @@ var vendormodels = {
     "OM5P-AN": "om5p-an"
   },
 
+  "OYEWIFI": {
+    "OYE-0001": "oy-0001"
+  },
+
+  "PandoraBox": {
+   "PBR-D1": "pbr-d1",
+   "PBR-M1": "pbr-m1"
+  },
+
   "PC Engines": {
     "ALIX": "x86-geode",
     "APU/APU2/APU3": "x86-64-apu"
   },
 
+  "PHICOMM": {
+    "PSG1208": "psg1208",
+    "PSG1218": "psg1218"
+  },
+
   "Planex": {
+    "CS-QR10": "cs-qr10",
+    "DB-WRT01": "db-wrt01",
     "MZA-WDPR": "mzk-wdpr",
     "MZK-750DHP": "mzk-750dhp",
     "MZK-DP150N": "mzk-dp150n",
@@ -441,7 +528,8 @@ var vendormodels = {
     "MZK-EX750NP": "mzk-ex750np",
     "MZK-W04NU": "mzk-w04nu",
     "MZK-W300NH": "mzk-w300nh",
-    "MZK-W300NH2": "mzk-w300nh2"
+    "MZK-W300NH2": "mzk-w300nh2",
+    "VR500": "vr500"
   },
 
   "Poray": {
@@ -463,10 +551,22 @@ var vendormodels = {
     "Pi B/B+/CM/Zero/ZeroW": "rpi"
   },
 
+  "SamKnows": {
+    "SK-WB8": "sk-wb8"
+  },
+
+  "Sanlinking": {
+    "D240": "d240"
+  },
+
   "Seagate": {
     "DockStar": "dockstar",
     "GoFlex Home": "goflexhome",
     "GoFlex Net": "goflexnet"
+  },
+
+  "Sercomm": {
+    "NA930": "na930"
   },
 
   "Sitecom": {
@@ -478,6 +578,10 @@ var vendormodels = {
 
   "SmartRG": {
     "SR400ac": "smartrg-sr400ac"
+  },
+
+  "STORYLiNK": {
+    "SAP-G3200U3": "sap-g3200u3"
   },
 
   "Teltonika": {
@@ -706,7 +810,25 @@ var vendormodels = {
     "My Net N750": {
       "my-net-n750": "",
       "mynet-n750": ""
-    }
+    },
+    "Wi-Fi Range Extender": "mynet-rext"
+  },
+
+  "WeVO": {
+   "11AC NAS Router": "11acnas",
+   "W2914NS": {
+     "w2914nsv2": "v2"
+   }
+  },
+
+  "Widora": {
+    "NEO": "widora-neo"
+  },
+
+  "WRTnode": {
+    "WRTnode": "wrtnode",
+    "WRTnode2Q": "wrtnode2q",
+    "WRTnode2R": "wrtnode2r"
   },
 
   "x86": {
@@ -726,6 +848,10 @@ var vendormodels = {
     "MiWiFi Nano": "miwifi-nano"
   },
 
+  "Youku": {
+    "youku-yk1": "youku-yk1"
+  },
+
   "ZBT": {
     "APE522II": "zbt-ape522ii",
     "CPE102": "zbt-cpe102",
@@ -737,7 +863,16 @@ var vendormodels = {
     "WR8305RT": "zbt-wr8305rt"
   },
 
+  "ZTE": {
+    "zte-q7": "zte-q7"
+  },
+
   "ZyXEL": {
+    "Keenetic Omni": "kn_rc",
+    "Keenetic Omni II": "kn_rf",
+    "Keenetic Viva": {
+      "kng_rc": "rev.B"
+    },
     "NBG-419N": {
       "nbg-419n": "v1",
       "nbg-419n2": "v2"
