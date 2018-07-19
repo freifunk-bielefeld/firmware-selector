@@ -13,12 +13,12 @@ var config = {
     './images/gluon-sysupgrade-example.html': 'stable'
 
     // Or from directory listings
-    //'https://downloads.lede-project.org/releases/17.01.4/targets/ar71xx/generic/': 'stable'
-    //'https://downloads.lede-project.org/snapshot/targets/ar71xx/generic/': 'stable'
+    //'https://downloads.openwrt.org/releases/17.01.5/targets/': 'stable',
+    //'https://downloads.openwrt.org/snapshots/targets/': 'snapshot'
 
     // Or use a JSON API
-    //'https://downloads.lede-project.org/releases/17.01.4/targets/?json': 'stable',
-    //'https://downloads.lede-project.org/snapshots/targets/?json': 'snapshot'
+    'https://downloads.openwrt.org/releases/17.01.5/targets/?json': 'stable',
+    'https://downloads.openwrt.org/snapshots/targets/?json': 'snapshot'
   },
 
   // Debug: List images in browser console that match no model
