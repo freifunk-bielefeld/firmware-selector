@@ -17,7 +17,7 @@ var config = {
     //'https://downloads.openwrt.org/snapshots/targets/': 'snapshot'
 
     // Or use a JSON API
-    'https://downloads.openwrt.org/releases/18.06.0/targets/?json': 'stable',
+    'https://downloads.openwrt.org/releases/18.06.2/targets/?json': 'stable',
     'https://downloads.openwrt.org/snapshots/targets/?json': 'snapshot'
   },
 
