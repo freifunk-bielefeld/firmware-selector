@@ -332,6 +332,7 @@ var vendormodels = {
     "WRT300N": "linksys-wrt300n",
     "WRT310N": "linksys-wrt310n",
     "WRT3200ACM": "wrt3200acm",
+    "WRT32X": "wrt32x",
     "WRT320N": "linksys-wrt320n",
     "WRT350N": "linksys-wrt350n",
     "WRT54G": "linksys-wrt54g",
