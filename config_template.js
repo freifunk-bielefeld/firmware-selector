@@ -10,7 +10,7 @@ var config = {
   sources: {
     // Scrape image paths from html files
     './images/gluon-factory-example.html': 'stable',
-    './images/gluon-sysupgrade-example.html': 'stable'
+    './images/gluon-sysupgrade-example.html': 'stable',
 
     // Or from directory listings
     //'https://downloads.openwrt.org/releases/17.01.5/targets/': 'stable',
