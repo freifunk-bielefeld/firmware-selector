@@ -249,7 +249,7 @@ var firmwarewizard = function() {
       changeTranslation();
       updateHTML(wizard);
     }
-  }
+  };
 
   // Exclude file names containing specific strings
   function ignoredFileName(name) {
@@ -728,7 +728,7 @@ var firmwarewizard = function() {
       } while (m);
 
       loadFinished();
-    }
+    };
 
     var parseJSON = function(data, indexPath) {
       var basePath = indexPath.substring(0, indexPath.lastIndexOf('/') + 1);
@@ -760,7 +760,7 @@ var firmwarewizard = function() {
       }
 
       loadFinished();
-    }
+    };
 
     for (var indexPath in config.sources) {
       if (indexPath.endsWith('json')) {
@@ -776,7 +776,7 @@ var firmwarewizard = function() {
   loadDirectories();
 
   // Set link to first firmware source
-  for(var path in config.sources) {
+  for (var path in config.sources) {
     $('#firmware-source-dir').href = path.replace(/\/[^\/]*$/, '');
     break;
   }
