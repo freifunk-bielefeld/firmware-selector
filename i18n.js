@@ -14,7 +14,6 @@ var translations = {
     'tr-introduction-additional': 'Bitte verwende das <em>Erstinstallationsimage</em>, wenn Du deinen Router gerade erst gekauft hast und sich darauf noch keine OpenWRT-Firmware befindet. Ist bereits eine OpenWRT-Firmware installiert, verwende bitte die mit <em>Upgrade</em> bezeichnete Version.',
     'tr-different-versions': 'Diese Firmware bieten wir in verschiedenen Versionen an:',
     'tr-back-to-selection': 'Zurück zum Auswahlmenü',
-    'tr-list-files': 'Liste aller Dateien',
     'tr-firmware': 'Firmware',
     'tr-stable-description': 'Gut getestet, zuverlässig und stabil.',
     'tr-unstable-description': 'Vorabtests neuer Stable-Kandidaten.',
@@ -43,7 +42,6 @@ var translations = {
     'tr-introduction-additional': 'If you have just bought the device, please choose the <em>first installation</em> image. If you have already installed OpenWRT, use the <em>upgrade</em> images.',
     'tr-different-versions': 'This firmware is available in the following versions:',
     'tr-back-to-selection': 'Back to selection',
-    'tr-list-files': 'List all files',
     'tr-firmware': 'Firmware',
     'tr-stable-description': 'Well tested, reliable and stable.',
     'tr-unstable-description': 'Testing candidates for the next stable release.',
@@ -71,7 +69,6 @@ var translations = {
     'tr-introduction-additional': 'Jeżeli dopiero kupiłeś urządzenie, wybierz obraz dla <em>pierwszej instalacji</em>. Jeżeli masz już zainstalowane OpenWrt, użyj obrazów dla <em>aktualizacji</em>.',
     'tr-different-versions': 'Firmware dostępne jest w następujących wersjach:',
     'tr-back-to-selection': 'Powrót do wyboru',
-    'tr-list-files': 'Lista wszystkich plików',
     'tr-firmware': 'Firmware',
     'tr-stable-description': 'Wersja stabilna.',
     'tr-unstable-description': 'Wersja testowa.',
@@ -90,7 +87,7 @@ var translations = {
     'tr-kernel': 'Kernel-Image',
     'tr-all': 'wszystkie'
   }
-}
+};
 
 // Complement translations based on other translations
 translations['de-freifunk'] = Object.assign({}, translations['de'], translations['de-freifunk']);

@@ -249,7 +249,7 @@ var firmwarewizard = function() {
       changeTranslation();
       updateHTML(wizard);
     }
-  }
+  };
 
   // Exclude file names containing specific strings
   function ignoredFileName(name) {
@@ -728,7 +728,7 @@ var firmwarewizard = function() {
       } while (m);
 
       loadFinished();
-    }
+    };
 
     var parseJSON = function(data, indexPath) {
       var basePath = indexPath.substring(0, indexPath.lastIndexOf('/') + 1);
@@ -760,7 +760,7 @@ var firmwarewizard = function() {
       }
 
       loadFinished();
-    }
+    };
 
     for (var indexPath in config.sources) {
       if (indexPath.endsWith('json')) {
@@ -776,10 +776,37 @@ var firmwarewizard = function() {
   loadDirectories();
 
   // Set link to first firmware source
-  for(var path in config.sources) {
+  for (var path in config.sources) {
     $('#firmware-source-dir').href = path.replace(/\/[^\/]*$/, '');
     break;
   }
+
+  function determineLocale() {
+    var requestedLocales = window.navigator.languages;
+    var supportedLocales = Object.getOwnPropertyNames(translations);
+    // find by full match lang and country i.e. pt-BR == pt-BR
+    for (var lng in requestedLocales) {
+      var requestedLocale = requestedLocales[lng];
+      if (supportedLocales.includes(requestedLocale)) {
+        config.language = requestedLocale;
+        console.log("i18n by lang and country: " + config.language);
+        return;
+      }
+    }
+
+    // find by match lang but ignoring country i.e. pt-BR == pt
+    for (var lng in requestedLocales) {
+      var language = requestedLocales[lng].split('-')[0];
+      if (supportedLocales.includes(language)) {
+        config.language = language;
+        console.log("i18n by lang: " + config.language);
+        return;
+      }
+    }
+    console.log("i18n default: " + config.language);
+  }
+
+  determineLocale();
 
   // Translate all texts
   app.changeLanguage(config.language);
