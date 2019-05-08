@@ -781,6 +781,33 @@ var firmwarewizard = function() {
     break;
   }
 
+  function determineLocale() {
+    var requestedLocales = window.navigator.languages;
+    var supportedLocales = Object.getOwnPropertyNames(translations);
+    // find by full match lang and country i.e. pt-BR == pt-BR
+    for (var lng in requestedLocales) {
+      var requestedLocale = requestedLocales[lng];
+      if (supportedLocales.includes(requestedLocale)) {
+        config.language = requestedLocale;
+        console.log("i18n by lang and country: " + config.language);
+        return;
+      }
+    }
+
+    // find by match lang but ignoring country i.e. pt-BR == pt
+    for (var lng in requestedLocales) {
+      var language = requestedLocales[lng].split('-')[0];
+      if (supportedLocales.includes(language)) {
+        config.language = language;
+        console.log("i18n by lang: " + config.language);
+        return;
+      }
+    }
+    console.log("i18n default: " + config.language);
+  }
+
+  determineLocale();
+
   // Translate all texts
   app.changeLanguage(config.language);
 
