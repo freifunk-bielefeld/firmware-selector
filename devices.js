@@ -751,11 +751,9 @@ var vendormodels = {
       "nanostation-m5-xw": "M5 XW"
     },
     "NanoStation Loco": {
-      "loco-m-xw": "M2/M5 XW",
-      "loco-m2": "M2 XM",
-      "loco-m2-xw": "M2 XW",
-      "loco-m5": "M5 XM",
-      "loco-m5-xw": "M5 XW"
+      "bullet-m": "M2/M5 XM/XW",
+      "bullet-m2": "M2 XM/XW",
+      "bullet-m5": "M5 XM/XW"
     },
     "PicoStation": "picostation",
     "Rocket": {
