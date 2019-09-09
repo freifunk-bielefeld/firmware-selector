@@ -395,6 +395,7 @@ var vendormodels = {
     "Centria N900 WNDR4720": "WNDR4700",
     "D7800": "D7800",
     "R6100": "r6100",
+    "R6120": "r6120",
     "R6250": "netgear-r6250",
     "R6300": "netgear-r6300",
     "R7000": "netgear-r7000",
