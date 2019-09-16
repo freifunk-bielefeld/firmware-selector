@@ -74,10 +74,11 @@ var vendormodels = {
   },
 
   "AVM": {
+    "FRITZ!Box 4020": "fritz4020",
     "FRITZ!Box 4040": "fritzbox-4040",
     "FRITZ!Box 7530": "fritzbox-7530",
     "FRITZ!Repeater 3000": "fritzrepeater-3000"
-  }
+  },
 
   "Belkin": {
     "F5D8235-4": "f5d8235",
@@ -228,7 +229,7 @@ var vendormodels = {
     "Ventana": "ventana"
   },
 
-  "GL Innovations": {
+  "GL.iNet": {
     "AR150": "gl-ar150",
     "AR300": "gl-ar300",
     "AR300M": "gl-ar300m",
@@ -238,6 +239,7 @@ var vendormodels = {
     "GL-MT300n": "gl-mt300n",
     "GL-MT750": "gl-mt750",
     "GL-USB150": "gl-usb150",
+    "6416A": "gl-inet-6416A",
     "GL-B1300": "glinet_gl-b1300",
     "iNet 6408a": "gl-inet-6408A",
     "iNet 6416a": "gl-inet-6416A"
@@ -398,11 +400,12 @@ var vendormodels = {
   },
 
   "Netgear": {
+    "EX6100": { "netgear_ex6100v2": "v2" },
     "Centria N900 WNDR4700": "WNDR4700",
     "Centria N900 WNDR4720": "WNDR4700",
     "D7800": "D7800",
-    "R6100": "r6100",
-    "R6120": "r6120",
+    "R6100": "netgear_r6100",
+    "R6120": "netgear_r6120",
     "R6250": "netgear-r6250",
     "R6300": "netgear-r6300",
     "R7000": "netgear-r7000",
@@ -605,7 +608,7 @@ var vendormodels = {
   },
 
   "TP-Link": {
-    "Archer C20": "ArcherC20",
+    "Archer C20": ["ArcherC20", "tplink_c20"],
     "Archer C20i": "ArcherC20i",
     "Archer C25": "archer-c25",
     "Archer C2600": {
@@ -614,7 +617,7 @@ var vendormodels = {
     "Archer C5": {
       "archer-c5": "v1"
     },
-    "Archer C50": "ArcherC50",
+    "Archer C50": ["ArcherC50", "tplink_c50"],
     "Archer C7": "archer-c7",
     "Archer C9": "archer-c9",
     "Archer MR200": "ArcherMR200",
