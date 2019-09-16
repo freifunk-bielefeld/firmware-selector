@@ -73,6 +73,12 @@ var vendormodels = {
     "WL-HDD25": "asus-wl-hdd25"
   },
 
+  "AVM": {
+    "FRITZ!Box 4040": "fritzbox-4040",
+    "FRITZ!Box 7530": "fritzbox-7530",
+    "FRITZ!Repeater 3000": "fritzrepeater-3000"
+  }
+
   "Belkin": {
     "F5D8235-4": "f5d8235",
     "F9K1115": {
@@ -232,6 +238,7 @@ var vendormodels = {
     "GL-MT300n": "gl-mt300n",
     "GL-MT750": "gl-mt750",
     "GL-USB150": "gl-usb150",
+    "GL-B1300": "glinet_gl-b1300",
     "iNet 6408a": "gl-inet-6408A",
     "iNet 6416a": "gl-inet-6416A"
   },
