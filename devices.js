@@ -614,9 +614,7 @@ var vendormodels = {
     "Archer C2600": {
       "C2600": "v1"
     },
-    "Archer C5": {
-      "archer-c5": "v1"
-    },
+    "Archer C5": "archer-c5",
     "Archer C50": ["ArcherC50", "tplink_c50"],
     "Archer C7": "archer-c7",
     "Archer C9": "archer-c9",
@@ -692,9 +690,7 @@ var vendormodels = {
       "tl-wr743nd": ""
     },
     "TL-WR802N": "tl-wr802n",
-    "TL-WR810N": {
-      "tl-wr810n": "v1"
-    },
+    "TL-WR810N": "tl-wr810n",
     "TL-WR841N/ND": {
       "tl-wr841": "",
       "tl-wr841n": "",
@@ -870,7 +866,8 @@ var vendormodels = {
     "WE826": "zbt-we826",
     "WG2626": "zbt-wg2626",
     "WG3526": "zbt-wg3526",
-    "WR8305RT": "zbt-wr8305rt"
+    "WR8305RT": "zbt-wr8305rt",
+    "WE826-E": "zbtlink_zbt-we826-e"
   },
 
   "ZTE": {
