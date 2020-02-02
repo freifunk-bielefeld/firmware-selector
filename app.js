@@ -617,6 +617,28 @@ var firmwarewizard = function() {
         }
       }
 
+      var all = {};
+      function stuff(vendor, model, rev) {
+
+          //console.log(rev.location);
+        if (rev.location.includes('imagebuilder')) {
+          return;
+        }
+
+        var offset = rev.location.indexOf('targets') + 'targets'.length;
+        var target = rev.location.substring(offset + 1, rev.location.lastIndexOf('/'));
+
+        var revision = rev.revision == "all" ? "" : rev.revision;
+        var file = rev.location.substring(rev.location.lastIndexOf('/') + 1);
+
+        var key = vendor + "," + model + "," + target + ',' + revision;
+        if (key in all) {
+          all[key][5].push(file);
+        } else {
+          all[key] = [vendor, model, revision, target, '', [file]];
+        }
+      }
+
       var lines = '';
       var vendors = Object.keys(images).sort();
       for (var v in vendors) {
@@ -631,6 +653,8 @@ var firmwarewizard = function() {
 
           revisions.forEach(initializeRevHTML);
           revisions.forEach(addToRevHTML);
+
+          revisions.forEach(function(rev) { stuff(vendor, model, rev); });
 
           if (!show) {
             continue;
@@ -651,6 +675,59 @@ var firmwarewizard = function() {
           lines += '</td></tr>';
         }
       }
+
+      function sameElem(arrs, x) {
+        var beg = "";
+        for (var i = 0; i < arrs.length; i += 1) {
+          var arr = arrs[i];
+          if (x >= arr.length) {
+            return false;
+          }
+          if (beg.length) {
+            if (arr[x] != beg) {
+              return false;
+            }
+          } else {
+            beg = arr[x];
+          }
+        }
+        return true;
+      }
+
+      // fill in prefix field
+      for (var key in all) {
+        var files = all[key][5];
+        var arrs = [];
+        for (var i in files) {
+          var file = files[i];
+          arrs.push(file.split('-'));
+        }
+
+        for (var i = 0; true; i += 1) {
+          if (!sameElem(arrs, i) || i >= (arrs[0].length - 1)) {
+            var prefix = arrs[0].slice(0, i).join('-');
+            if (prefix.length) {
+              prefix += '-';
+            }
+            var files = [];
+            for (var j in arrs) {
+              files.push(arrs[j].slice(i).join('-'));
+            }
+
+            all[key][4] = prefix;
+            all[key][5] = files;
+            break;
+          }
+        }
+      }
+
+      console.log({'19.07.1': {
+          'commit': 'unknown',
+          'link': 'https://downloads.openwrt.org/releases/%release/%target/%file',
+          'models': Object.values(all)
+        }
+      });
+
       tb.innerHTML = lines;
     }
     updateFirmwareTable();
